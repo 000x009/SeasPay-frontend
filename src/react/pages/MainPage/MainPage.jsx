@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import MainIcon from '@/assets/images/main.png';
 import { Progress } from '@/react/components/ui/Progress/Progress';
 import { MainHeader } from '@/react/components/ui/MainHeader/MainHeader';
-import { Image } from '@telegram-apps/telegram-ui';
+import { MainCellList } from '@/react/components/ui/MainCellList/MainCellList';
 import './MainPage.css';
 
 /**
@@ -19,20 +18,7 @@ export function MainPage() {
     return (
         <div>
             <MainHeader/>
-            <Image
-            src={MainIcon}
-            className='image'
-            style={{
-                width: "130px",
-                height: "130px",
-                margin: "0 auto",
-                bottom: "-40px",
-                mozUserSelect: "none",
-                webkitUserSelect: "none",
-                userSelect: "none",
-                msUserSelect: "none",
-            }}
-            />
+            <MainCellList/>
         </div>
     )
 }

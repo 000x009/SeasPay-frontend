@@ -1,0 +1,43 @@
+.main_actions__container {
+    padding: 16px;
+    margin-top: 40px;
+    width: calc(100% - 32px);
+}
+
+.actions__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.actions__item {
+    width: 110px;
+}
+
+.action-button {
+    width: 110px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    user-select: none;
+}
+
+.action-icon {
+    width: 32px;
+    height: 32px;
+}
