@@ -2,8 +2,8 @@ import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { useEffect, useMemo } from 'react';
 import WebApp from '@twa-dev/sdk';
 
-import { App } from '@/components/App.jsx';
-import { ErrorBoundary } from '@/components/ErrorBoundary.jsx';
+import { App } from '@/react/components/app/App.jsx';
+import { ErrorBoundary } from '@/react/components/app/ErrorBoundary.jsx';
 
 /**
  * @param {unknown} error

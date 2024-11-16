@@ -1,3 +1,5 @@
+import { MainPage } from '@/react/pages/MainPage/MainPage';
+
 /**
  * @typedef {object} Route
  * @property {string} path
@@ -10,4 +12,5 @@
  * @type {Route[]}
  */
 export const routes = [
+    {path: '/', Component: MainPage}
 ];
