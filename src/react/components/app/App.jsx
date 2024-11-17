@@ -10,6 +10,8 @@ import {
   useNavigate,
 } from 'react-router-dom';
 
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+
 import { routes } from '@/navigation/routes.jsx';
 
 function BackButtonManipulator() {
@@ -40,18 +42,22 @@ function BackButtonManipulator() {
  * @return {JSX.Element}
  */
 export function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <AppRoot
-      appearance={WebApp.colorScheme}
-      platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
-    >
-      <BrowserRouter>
-        <BackButtonManipulator/>
-        <Routes>
-          {routes.map((route) => <Route key={route.path} {...route} />)}
-          <Route path='*' element={<Navigate to='/'/>}/>
-        </Routes>
-      </BrowserRouter>
-    </AppRoot>
+    <QueryClientProvider client={queryClient}>
+      <AppRoot
+        appearance={WebApp.colorScheme}
+        platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
+      >
+        <BrowserRouter>
+          <BackButtonManipulator/>
+          <Routes>
+            {routes.map((route) => <Route key={route.path} {...route} />)}
+            <Route path='*' element={<Navigate to='/'/>}/>
+          </Routes>
+        </BrowserRouter>
+      </AppRoot>
+    </QueryClientProvider>
   );
 }
