@@ -1,7 +1,9 @@
 import { IconButton, Image } from "@telegram-apps/telegram-ui"
 import MainIcon from '@/assets/images/main.png';
 import AccountIcon from "@/assets/icons/account.svg?react"
+
 import { MainActions } from '@/react/components/ui/MainActions/MainActions';
+import { Link } from "../Link/Link";
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import "./MainHeader.css"
@@ -10,9 +12,11 @@ export function MainHeader() {
     return (
         <div>
             <div className="header">
+                <Link to="/profile">
                 <IconButton size="l" mode="plain" className="icon_button__account">
                     <AccountIcon/>
                 </IconButton>
+                </Link>
                 <Image
                     src={MainIcon}
                     className='image'

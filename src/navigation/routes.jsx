@@ -1,4 +1,7 @@
 import { MainPage } from '@/react/pages/MainPage/MainPage';
+import { ProfilePage } from '@/react/pages/ProfilePage/ProfilePage';
+import { ReferralPage } from '@/react/pages/ReferralPage/ReferralPage';
+
 
 /**
  * @typedef {object} Route
@@ -12,5 +15,7 @@ import { MainPage } from '@/react/pages/MainPage/MainPage';
  * @type {Route[]}
  */
 export const routes = [
-    {path: '/', Component: MainPage}
+    {path: '/', Component: MainPage},
+    {path: '/profile', Component: ProfilePage},
+    {path: '/referral', Component: ReferralPage},
 ];

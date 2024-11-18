@@ -1,0 +1,66 @@
+.profile_avatar__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.username {
+    margin-top: 15px;
+}
+
+.commission_section__container {
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.commission_section__list {
+    border-radius: 12px;
+    margin: 5px 16px;
+    position: relative;
+}
+
+.commission_section {
+    color: var(--tg-theme-text-color);
+}
+
+.commission_section__progress_container {
+    margin: 0 auto;
+}
+
+.commission_section__progress {
+    height: 5px;
+    border-radius: 5px;
+}
+
+.commission_section__progress_text {
+    margin-bottom: 10px;
+}
+
+.how_to_reduce_commission__text {
+	position: relative;
+    font-size: 14px;
+    color: var(--tg-theme-link-color);
+    line-height: 1;
+	text-decoration: none;
+}
+
+
+.how_to_reduce_commission__text:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--tg-theme-link-color);
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.how_to_reduce_commission__text:hover:after,
+.how_to_reduce_commission__text:focus:after {
+	width: 100%;
+}

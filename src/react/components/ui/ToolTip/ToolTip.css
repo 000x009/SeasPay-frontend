@@ -1,0 +1,26 @@
+.tooltip_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    margin-left: 16px;
+}
+
+.tooltip_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    user-select: none;
+}
+
+.tooltip_button:hover {
+    background: none;
+    opacity: 1;
+}
+
+.tooltip_button svg {
+    display: block;
+}
