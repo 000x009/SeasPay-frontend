@@ -1,6 +1,5 @@
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { useEffect, useMemo } from 'react';
-import WebApp from '@twa-dev/sdk';
 
 import { App } from '@/react/components/app/App.jsx';
 import { ErrorBoundary } from '@/react/components/app/ErrorBoundary.jsx';
@@ -30,6 +29,7 @@ function ErrorBoundaryError({ error }) {
  * @returns {JSX.Element}
  */
 export function Inner() {
+  const WebApp = window.Telegram.WebApp;
   const debug = WebApp.initDataUnsafe.start_param === 'debug';
   const manifestUrl = useMemo(() => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();

@@ -3,17 +3,12 @@ import {
     Title,
     Section,
     Progress as CommissionProgress,
-    Caption,
     List,
     Subheadline,
-    Tooltip,
-    IconButton,
-    Button,
     Text
 } from "@telegram-apps/telegram-ui";
-import { Icon20QuestionMark } from "@telegram-apps/telegram-ui/dist/icons/20/question_mark"
 import { useUser } from "@/scripts/hooks/useUser";
-import { useRef, useState } from "react";
+import { useTelegram } from "@/scripts/hooks/useTelegram";
 
 import {ProfileCellList} from "@/react/components/ui/ProfileCellList/ProfileCellList";
 import { Link } from "@/react/components/ui/Link/Link";
@@ -23,25 +18,20 @@ import "./ProfilePage.css";
 
 
 export function ProfilePage() {
-    const tooltipRef = useRef(null);
-    const [shown, setShown] = useState(false);
-    const {user, isLoading, telegram_user_data} = useUser();
-
-    // if (isLoading || !telegram_user_data) {
-    //     return <Progress/>
-    // }
+    const { user } = useUser();
+    const { telegram_user } = useTelegram();
 
     return (
         <div className="profile__container">
             <div className="profile_avatar__container">
                 <Avatar
                     size={96}
-                    src={telegram_user_data.photo_url}
-                    acronym={telegram_user_data.first_name?.[0] || ''}
+                    src={telegram_user.photo_url}
+                    acronym={telegram_user.first_name?.[0] || ''}
                     className="avatar"
                 />
                 <Title className="username">
-                    {telegram_user_data.first_name} {telegram_user_data.last_name || ''}
+                    {telegram_user.first_name} {telegram_user.last_name || ''}
                 </Title>
             </div>
             <div className="commission_section__container">

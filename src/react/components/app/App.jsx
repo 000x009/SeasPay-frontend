@@ -1,4 +1,3 @@
-import WebApp from '@twa-dev/sdk';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { useEffect } from 'react';
 import {
@@ -13,10 +12,13 @@ import {
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import { routes } from '@/navigation/routes.jsx';
+import { useTelegram } from '@/scripts/hooks/useTelegram';
+import { UserAPI } from '@/scripts/backend/api/user';
 
 function BackButtonManipulator() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { WebApp } = useTelegram();
 
   useEffect(() => {
     function onClick() {
@@ -43,6 +45,15 @@ function BackButtonManipulator() {
  */
 export function App() {
   const queryClient = new QueryClient();
+  const { WebApp } = useTelegram();
+  
+  useEffect(() => {
+    const login = async () => {
+      const response = await UserAPI.login(WebApp.initData);
+      console.log("Login response", response);
+    };
+    login();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

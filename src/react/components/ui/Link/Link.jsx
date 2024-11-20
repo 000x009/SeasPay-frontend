@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
-import WebApp from '@twa-dev/sdk';
 import { Link as RouterLink } from 'react-router-dom';
 
 import './Link.css';
+import { useTelegram } from '@/scripts/hooks/useTelegram';
 
 /**
  * @param {import('react-router-dom').LinkProps} props
@@ -16,6 +16,7 @@ export function Link({
 }) {
   const onClick = useCallback((e) => {
     propsOnClick?.(e);
+    const { WebApp } = useTelegram();
 
     // Compute if target path is external. In this case we would like to open link using
     // TMA method.

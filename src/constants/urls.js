@@ -1,0 +1,1 @@
+export const botURL = "https://t.me/overseas_pay_bot"

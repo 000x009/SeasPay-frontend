@@ -1,5 +1,5 @@
 import { IconButton, Image } from "@telegram-apps/telegram-ui"
-import MainIcon from '@/assets/images/main.png';
+import OverseasPayLogo from '@/assets/images/overseaspay.png';
 import AccountIcon from "@/assets/icons/account.svg?react"
 
 import { MainActions } from '@/react/components/ui/MainActions/MainActions';
@@ -18,7 +18,7 @@ export function MainHeader() {
                 </IconButton>
                 </Link>
                 <Image
-                    src={MainIcon}
+                    src={OverseasPayLogo}
                     className='image'
                     style={{
                         width: "130px",

@@ -1,5 +1,4 @@
 import { List, Cell } from "@telegram-apps/telegram-ui";
-import ReferralIcon from "@/assets/icons/referral_system.svg?react"
 import ChevronForwardIcon from "@/assets/icons/chevron_forward.svg?react"
 import DetailsIcon from "@/assets/icons/details.svg?react"
 

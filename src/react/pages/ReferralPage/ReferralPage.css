@@ -1,0 +1,80 @@
+.referral_image {
+    visibility: hidden;
+    width: 137px;
+    height: 170px;
+    position: relative;
+}
+
+.referral_placeholder {
+    margin-top: 15px;
+}
+
+.image__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.referral_modal_button {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    margin: 0;
+    padding: 12px 16px;
+}
+
+.referral_modal {
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.referral_modal_close {
+    margin-left: auto;
+}
+
+.referral_modal_button:hover {
+    cursor: pointer;
+}
+
+.referral_modal_close:hover {
+    cursor: pointer;
+}
+
+.referral_modal_placeholder {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.referral_modal_close {
+    margin-left: auto;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.referral_modal_content__container {
+    gap: 15px;
+}
+
+
+.referral_modal_divider {
+    color: var(--tg-theme-hint-color);
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.snackbar {
+    position: fixed;
+    z-index: 0;
+    bottom: 70px;
+}

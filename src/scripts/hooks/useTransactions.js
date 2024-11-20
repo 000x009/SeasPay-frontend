@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { OrderAPI } from "@/scripts/backend/api/order";
-import WebApp from '@twa-dev/sdk';
 
 
 /**
@@ -9,6 +8,7 @@ import WebApp from '@twa-dev/sdk';
  * @returns {Object}
  */
 export function useTransactions({ limit, offset }) {
+    const WebApp = window.Telegram.WebApp;
     const {data, isLoading} = useQuery({
         queryKey: ['transactions', limit, offset],
         queryFn: async () => {
