@@ -55,6 +55,10 @@ export function App() {
     login();
   }, []);
 
+  useEffect(() => {
+    WebApp.setBackgroundColor("#0f0f0f")
+  }, [])
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppRoot

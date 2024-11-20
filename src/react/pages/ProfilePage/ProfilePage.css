@@ -12,19 +12,16 @@
 }
 
 .commission_section__container {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
     box-sizing: border-box;
 }
 
 .commission_section__list {
-    border-radius: 12px;
+    border-radius: 16px;
     margin: 5px 16px;
     position: relative;
-}
-
-.commission_section {
-    color: var(--tg-theme-text-color);
+    margin-top: 10px;
 }
 
 .commission_section__progress_container {
@@ -63,4 +60,10 @@
 .how_to_reduce_commission__text:hover:after,
 .how_to_reduce_commission__text:focus:after {
 	width: 100%;
+}
+
+
+.commission_section__headline {
+    margin-left: 16px;
+    color: var(--tg-theme-hint-color);
 }

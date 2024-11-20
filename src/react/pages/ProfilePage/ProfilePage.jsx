@@ -1,7 +1,7 @@
 import {
     Avatar,
     Title,
-    Section,
+    Caption,
     Progress as CommissionProgress,
     List,
     Subheadline,
@@ -35,41 +35,42 @@ export function ProfilePage() {
                 </Title>
             </div>
             <div className="commission_section__container">
-                <Section header="Ваша комиссия" className="commission_section">
-                    <List
-                        className="commission_section__list"
-                        style={{
-                            background: 'var(--tgui--secondary_bg_color)',
-                            padding: 16
-                        }}
-                    >
-                        <div className="commission_section__progress_container">
-                            <Subheadline className="commission_section__progress_text" level={1}>
-                                Переводы: {user?.commission || 15}%
-                            </Subheadline>
-                            <CommissionProgress
-                                value={user?.commission || 100}
-                                className="commission_section__progress"
-                            />
-                        </div>
-                        <div className="commission_section__progress_container">
-                            <Subheadline className="commission_section__progress_text" level={1}>
-                                Выводы: {user?.commission || 15}%
-                            </Subheadline>
-                            <CommissionProgress
-                                value={user?.commission || 100}
-                                className="commission_section__progress"
-                            />
-                        </div>
-                        <div>
-                            <Link to="/referral">
-                                <Text className="how_to_reduce_commission__text">
-                                    Как снизить комиссию?
-                                </Text>
-                            </Link>
-                        </div>
-                    </List>
-                </Section>
+                <Caption className="commission_section__headline" level="3" plain>
+                    Комиссия
+                </Caption>
+                <List
+                    className="commission_section__list"
+                    style={{
+                        background: 'var(--tg-theme-secondary-bg-color)',
+                        padding: 16
+                    }}
+                >
+                    <div className="commission_section__progress_container">
+                        <Subheadline className="commission_section__progress_text" level={1}>
+                            Переводы: {user?.commission || 15}%
+                        </Subheadline>
+                        <CommissionProgress
+                            value={user?.commission || 100}
+                            className="commission_section__progress"
+                        />
+                    </div>
+                    <div className="commission_section__progress_container">
+                        <Subheadline className="commission_section__progress_text" level={1}>
+                            Выводы: {user?.commission || 15}%
+                        </Subheadline>
+                        <CommissionProgress
+                            value={user?.commission || 100}
+                            className="commission_section__progress"
+                        />
+                    </div>
+                    <div>
+                        <Link to="/referral">
+                            <Text className="how_to_reduce_commission__text">
+                                Как снизить комиссию?
+                            </Text>
+                        </Link>
+                    </div>
+                </List>
             </div>
             <ProfileCellList/>
         </div>
