@@ -1,0 +1,17 @@
+.gif {
+    position: relative;
+}
+
+.gif.playing {
+    animation: play-once 1s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes play-once {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: visible;
+    }
+}

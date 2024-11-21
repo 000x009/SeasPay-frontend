@@ -5,15 +5,12 @@
     position: relative;
 }
 
-.referral_placeholder {
-    margin-top: 15px;
-}
-
 .image__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
 }
 
 .referral_modal_button {
@@ -43,7 +40,6 @@
 }
 
 .referral_modal_placeholder {
-    margin-bottom: 16px;
     display: flex;
     justify-content: center;
     width: 85%;

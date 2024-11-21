@@ -1,20 +1,22 @@
-import ReferralImage from '@/assets/images/referral.png';
 import { Image, Placeholder, Modal, Button, Divider, Snackbar } from '@telegram-apps/telegram-ui'
 import { Icon28Close } from "@telegram-apps/telegram-ui/dist/icons/28/close"
 import { Icon20Copy } from "@telegram-apps/telegram-ui/dist/icons/20/copy"
 
 import { useState } from 'react';
 
+import ReferralImage from '@/assets/images/referral.png';
+import ReferralGIF from '@/assets/gif/referral.gif';
 import { CopyLink } from '@/scripts/helpers/copyLink';
 import { botURL } from '@/constants/urls';
 import { useTelegram } from '@/scripts/hooks/useTelegram';
 import useShareMessage from '@/scripts/hooks/useShareMessage';
+import { Gif } from '@/react/components/ui/Gif/Gif';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import './ReferralPage.css'
 
 const getUserReferralLink = ({userId}) => {
-    return `${botURL}/start=${userId}`
+    return `${botURL}/?startapp=${userId}`
 }
 
 export function ReferralPage() {
@@ -22,7 +24,7 @@ export function ReferralPage() {
     const [snackbarActive, setSnackbarActive] = useState(false);
     const { WebApp } = useTelegram();
     const { data } = useShareMessage()
-
+    
     const handleCopyLink = async () => {
         setModalActive(false)
         setSnackbarActive(true)
@@ -38,18 +40,18 @@ export function ReferralPage() {
     return (
         <>
             <div className='image__container'>
+                <Image
+                    src={ReferralGIF}
+                    className={`referral_image`}
+                    style={{
+                        width: "170px",
+                        height: "160px",
+                    }}
+                />
                 <Placeholder
                     header="Приглашай своих друзей и снижай комиссию вместе с ними!"
                     description="За каждый вывод/перевод средств, сделанный вашим рефералом, ваша комиссия будет снижаться на 1%"
                     className='referral_placeholder'
-                />
-                <Image
-                    src={ReferralImage}
-                    className='referral_image'
-                    style={{
-                        width: "170px",
-                        height: "137px",
-                    }}
                 />
             </div>
             {snackbarActive && (
