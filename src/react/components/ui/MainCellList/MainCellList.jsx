@@ -30,6 +30,7 @@ export function MainCellList() {
                     before={<FeedbacksIcon/>}
                     after={<ChevronForwardIcon/>}
                     interactiveAnimation="background"
+                    onClick={() => navigate("/feedbacks")}
                 >
                     Отзывы
                 </Cell>

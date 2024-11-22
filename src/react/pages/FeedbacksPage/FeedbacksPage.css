@@ -1,0 +1,35 @@
+.feedbacks_image {
+    visibility: hidden;
+    position: relative;
+}
+
+.introducing_content__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedbacks_divider__container {
+    margin-top: 25px;
+}
+
+.feedbacks_description_placeholder {
+    text-align: center;
+    color: var(--tg-theme-hint-color);
+}
+
+.feedbacks_description_container {
+    margin-top: 15px;
+    margin-left: 55px;
+    margin-right: 55px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.feedbacks_cards_container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
