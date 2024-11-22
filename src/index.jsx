@@ -4,5 +4,12 @@ import { Root } from '@/react/components/app/Root.jsx';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import './index.css';
+import { setBackgroundMainColor } from '@/scripts/helpers/setBackgroundMainColor';
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Root/>);
+setBackgroundMainColor();
+
+const root = document.getElementById('root')
+
+ReactDOM.createRoot(root).render(<Root/>);
+
+root.style.setProperty('--tg-theme-bg-color', '#0f0f0f');

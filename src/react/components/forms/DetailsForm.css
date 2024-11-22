@@ -1,0 +1,33 @@
+.form__container {
+    margin: 20px;
+    background-color: #0f0f0f;
+}
+
+.form__container .input {
+    background-color: #0f0f0f !important;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+    background-color: #0f0f0f;
+    gap: 10px;
+}
+
+.form__selects .select {
+    background-color: #0f0f0f !important;
+}
+
+.form__inputs .input {
+    background-color: #0f0f0f !important;
+}
+
+.add-comment {
+    padding: 0px 16px 0 16px;
+    color: #2990FF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+

@@ -50,7 +50,6 @@ export function App() {
   useEffect(() => {
     const login = async () => {
       const response = await UserAPI.login(WebApp.initData);
-      console.log("Login response", response);
     };
     login();
   }, []);
