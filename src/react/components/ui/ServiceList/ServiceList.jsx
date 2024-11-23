@@ -63,7 +63,7 @@ export function ServiceList() {
                         title={service.title}
                         image={service.image}
                         onClick={() => {
-                            navigate(`/service/${service.id}`);
+                            navigate(`/services/products`);
                         }}
                     />
                 ))}

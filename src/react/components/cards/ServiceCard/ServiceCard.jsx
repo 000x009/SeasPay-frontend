@@ -2,9 +2,9 @@ import { Text, Tappable } from "@telegram-apps/telegram-ui";
 
 import "./ServiceCard.css";
 
-export function ServiceCard({ image, title }) {
+export function ServiceCard({ image, title, ...props }) {
     return (
-        <Tappable className="card">
+        <Tappable className="card" {...props}>
             <div className="card__image-container">
                 <img className="card__image" src={image} />
             </div>
