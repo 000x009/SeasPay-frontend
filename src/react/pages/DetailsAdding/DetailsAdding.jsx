@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { Headline, List } from "@telegram-apps/telegram-ui"
 
 import { useTelegram } from "@/scripts/hooks/useTelegram"
-import { DetailsForm } from "@/react/components/forms/DetailsForm"
+import { DetailsForm } from "@/react/components/forms/DetailsForm/DetailsForm"
 import { CARD_DETAILS, CRYPTO_DETAILS } from "@/constants/detailsText"
 
 import "./DetailsAdding.css"

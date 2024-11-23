@@ -1,0 +1,12 @@
+input[type="file"] {
+    display: none;
+}
+  
+.custom-file-upload {
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+    gap: 8px;
+    color: var(--tg-theme-link-color);
+    width: fit-content;
+}

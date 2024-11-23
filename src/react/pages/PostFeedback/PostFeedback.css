@@ -1,0 +1,15 @@
+.post_feedback__image {
+    visibility: hidden;
+    position: relative;
+}
+
+.post_feedback__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_feedback_form__container {
+    padding-top: 50px;
+}

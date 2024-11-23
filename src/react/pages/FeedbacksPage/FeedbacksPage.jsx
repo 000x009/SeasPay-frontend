@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Placeholder, Image, Caption } from "@telegram-apps/telegram-ui";
+import { MainButton } from "@vkruglikov/react-telegram-web-app";
 
 import { Divider } from "@/react/components/ui/Divider/Divider";
 import { FeedbackCard } from "@/react/components/cards/FeedbackCard/FeedbackCard";
@@ -17,18 +18,6 @@ export function FeedbacksPage() {
     const handleMainButtonClick = () => {
         navigate("/feedbacks/post");
     }
-
-    useEffect(() => {
-        WebApp.MainButton.setParams({
-            text: "Оставить отзыв",
-        });
-        WebApp.MainButton.show();
-        WebApp.MainButton.onClick(handleMainButtonClick);
-
-        return () => {
-            WebApp.MainButton.hide();
-        }
-    }, []);
 
     return (
         <>
@@ -64,6 +53,10 @@ export function FeedbacksPage() {
                     itemsLeftCount={10}
                 />
             </div>
+            <MainButton
+                text="Оставить отзыв"
+                onClick={handleMainButtonClick}
+            />
         </>
     );
 }

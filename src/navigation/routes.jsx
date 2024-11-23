@@ -4,6 +4,7 @@ import { ReferralPage } from '@/react/pages/ReferralPage/ReferralPage';
 import { PaymentDetails } from '@/react/pages/PaymentDetails/PaymentDetails';
 import { DetailsAdding } from '@/react/pages/DetailsAdding/DetailsAdding';
 import { FeedbacksPage } from '@/react/pages/FeedbacksPage/FeedbacksPage';
+import { PostFeedback } from '@/react/pages/PostFeedback/PostFeedback';
 
 /**
  * @typedef {object} Route
@@ -23,4 +24,5 @@ export const routes = [
     {path: '/payment-details', Component: PaymentDetails},
     {path: '/payment-details/add', Component: DetailsAdding},
     {path: '/feedbacks', Component: FeedbacksPage},
+    {path: '/feedbacks/post', Component: PostFeedback},
 ];

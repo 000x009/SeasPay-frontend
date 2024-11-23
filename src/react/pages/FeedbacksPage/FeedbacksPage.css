@@ -21,9 +21,7 @@
 
 .feedbacks_description_container {
     margin-top: 15px;
-    margin-left: 55px;
-    margin-right: 55px;
-    font-size: 14px;
+    padding: 0 20px;
     text-align: center;
 }
 
