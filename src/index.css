@@ -6,3 +6,18 @@ body {
   user-select: none;
   -webkit-user-select: none;
 }
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+::selection {
+  background: rgba(0, 132, 255, 0.3);
+}
+
+::-moz-selection {
+  background: rgba(0, 132, 255, 0.3);
+}

@@ -1,0 +1,33 @@
+.service-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.expand-services {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    color: #2990FF;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.expand-services__content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}

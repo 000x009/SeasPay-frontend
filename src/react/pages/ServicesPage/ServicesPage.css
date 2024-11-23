@@ -1,0 +1,21 @@
+.services-page {
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase-request__cell {
+    background-color: var(--tg-theme-secondary-bg-color);
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.purchase-request {
+    position: relative;
+    padding-top: 15px;
+}
