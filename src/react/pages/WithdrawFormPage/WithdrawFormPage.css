@@ -1,0 +1,44 @@
+.withdraw-form-page__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.withdraw-form-page__header {
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    color: #2990FF;
+}
+
+.withdraw-form__files {
+    padding-left: 15px;
+}
+
+.withdraw-form__select-item {
+    position: relative;
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.withdraw-form__select {
+    width: 100%;
+    position: relative;
+}
+
+.withdraw-form__select select {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.withdraw-form__select-options {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 100%;
+    left: 0;
+}
+
+.withdraw-form-page__info-container {
+    margin-top: 20px;
+}
+

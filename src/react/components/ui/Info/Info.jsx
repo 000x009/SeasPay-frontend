@@ -8,11 +8,11 @@ export function Info({
     ...props
 }) {
     return (
-        <div className="info" {...props}>
+        <div className="info-component" {...props}>
             <div className="info__icon-container">
                 {icon}
             </div>
-            <div className="info__header-container">
+            <div className="info-header__container">
                 <Headline level="1" weight="1" className="info__header">{header}</Headline>
             </div>
             <div className="info__body-container">

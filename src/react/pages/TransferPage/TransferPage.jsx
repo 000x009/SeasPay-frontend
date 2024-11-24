@@ -40,7 +40,7 @@ export const TransferPage = () => {
                 </Title>
             </div>
             <div className='payment-systems-section__container'>
-                <PaymentSystemsSection paymentSystems={paymentSystems} />
+                <PaymentSystemsSection paymentSystems={paymentSystems} type="transfer" />
             </div>
         </div>
     );

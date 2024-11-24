@@ -40,7 +40,7 @@ export const WithdrawPage = () => {
                 </Title>
             </div>
             <div className='payment-systems-section__container'>
-                <PaymentSystemsSection paymentSystems={paymentSystems} />
+                <PaymentSystemsSection paymentSystems={paymentSystems} type="withdraw" />
             </div>
         </div>
     );

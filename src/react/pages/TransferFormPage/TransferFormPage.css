@@ -1,0 +1,15 @@
+.transfer-form-page__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.select-section__container {
+    padding: 10px 20px;
+}
+
+.transfer-form-page__header {
+    padding: 10px 20px;
+    padding-bottom: 20px;
+    color: #2990FF;
+}

@@ -8,3 +8,7 @@
     align-items: center;
     cursor: pointer;
 }
+
+.tappable-payment-system {
+    border-radius: 15px;
+}

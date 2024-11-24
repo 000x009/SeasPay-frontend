@@ -1,4 +1,4 @@
-.info {
+.info-component {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -25,4 +25,9 @@
     align-items: center;
     width: 100%;
     word-break: break-word;
+}
+
+.info-header__container {
+    color: var(--tg-theme-text-color);
+    text-align: center;
 }
