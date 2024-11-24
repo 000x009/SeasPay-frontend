@@ -1,0 +1,9 @@
+.payment-systems-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-systems-section-item {
+    width: 100%;
+}

@@ -19,7 +19,11 @@ export function MainActions() {
         <div className="main_actions__container">
             <ul className="actions__list">
                 <li className="actions__item">
-                    <IconButton className="action-button" mode="plain">
+                    <IconButton
+                        className="action-button"
+                        mode="plain"
+                        onClick={() => navigate("/transfer")}
+                    >
                         <div className="icon-button__content">
                             <TransferIcon className="action-icon"/>
                             <Subheadline>Перевести</Subheadline>
@@ -27,7 +31,11 @@ export function MainActions() {
                     </IconButton>
                 </li>
                 <li className="actions__item">
-                    <IconButton className="action-button" mode="plain">
+                    <IconButton
+                        className="action-button"
+                        mode="plain"
+                        onClick={() => navigate("/withdraw")}
+                    >
                         <div className="icon-button__content">
                             <WithdrawIcon className="action-icon"/>
                             <Subheadline>Вывести</Subheadline>

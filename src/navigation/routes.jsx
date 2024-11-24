@@ -9,6 +9,7 @@ import { ServicesPage } from '@/react/pages/ServicesPage/ServicesPage';
 import { ProductsPage } from '@/react/pages/ProductsPage/ProductsPage';
 import { ProductPurchasing } from '@/react/pages/ProductPurchasing/ProductPurchasing';
 import { PaymentPage } from '@/react/pages/PaymentPage/PaymentPage';
+import { TransferPage } from '@/react/pages/TransferPage/TransferPage';
 
 /**
  * @typedef {object} Route
@@ -34,4 +35,5 @@ export const routes = [
     {path: '/products/purchase', Component: ProductPurchasing},
     {path: '/payment', Component: PaymentPage},
     {path: '/payment/:type', Component: PaymentPage}, 
+    {path: '/transfer', Component: TransferPage},
 ];

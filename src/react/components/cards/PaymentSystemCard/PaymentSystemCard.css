@@ -1,0 +1,10 @@
+.payment-system-card {
+    min-width: 360px;
+    min-height: 60px;
+    border-radius: 15px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
