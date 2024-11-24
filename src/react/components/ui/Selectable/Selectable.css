@@ -1,0 +1,35 @@
+.select {
+    margin: 8px 0;
+}
+
+.select__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.select__input {
+    display: none;
+}
+
+.select__icon {
+    width: 22px;
+    height: 22px;
+}
+
+.select__name {
+    font-size: 14px;
+}
+
+.select__description {
+    font-size: 12px;
+    color: var(--tg-theme-hint-color);
+}
+
+.select__info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+

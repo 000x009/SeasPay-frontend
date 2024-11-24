@@ -1,0 +1,39 @@
+.product-purchasing {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-purchasing__header {
+    margin-bottom: 10px;
+}
+
+.product-purchasing__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.product-purchasing__input {
+    width: 360px;
+}
+
+.purchase-method {
+    padding-left: 10px;
+}
+
+.purchase-method__header {
+    color: var(--tg-theme-hint-color);
+}
+
+.product-purchasing__select-section {
+    padding-left: 10px;
+}
+
+.password-input-eye-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}

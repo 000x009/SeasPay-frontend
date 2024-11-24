@@ -49,7 +49,7 @@ export function ProductList() {
                         title={product.title}
                         image={product.image}
                         onClick={() => {
-                            navigate(`/products/${product.id}`);
+                            navigate(`/products/purchase?id=${product.id}`);
                         }}
                     />
                 ))}

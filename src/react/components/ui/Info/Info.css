@@ -1,0 +1,28 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info__body {
+    white-space: pre-line;
+    font-size: 14px;
+    color: var(--tg-theme-hint-color);
+}
+
+.info__body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-word;
+}
