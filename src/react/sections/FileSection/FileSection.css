@@ -1,0 +1,32 @@
+.feedback__file_input_cell {
+    box-sizing: border-box;
+    padding: 0 0 0 0;
+    cursor: default;
+}
+
+.file-section__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.feedback__file_input_cell:hover {
+    background-color: var(--tg-theme-button-color-hover);
+}
+
+.remove_file__container {
+    display: flex;
+    cursor: pointer;
+}
+
+.remove_file__button {
+    cursor: pointer;
+}
+
+
+.feedback__file_input_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

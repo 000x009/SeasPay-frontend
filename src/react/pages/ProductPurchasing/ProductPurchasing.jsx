@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 import { Breadcrumbs, Input } from "@telegram-apps/telegram-ui";
+
 import { Info } from "@/react/components/ui/Info/Info";
 import WarningIcon from "@/assets/icons/warning.svg?react";
 import EyeIcon from "@/assets/icons/eye.svg?react";
 import EyeOffIcon from "@/assets/icons/eye_off.svg?react";
-
 import SelectSection from "@/react/sections/SelectSection/SelectSection";
-
 import "./ProductPurchasing.css";
 
 const selectSectionItems = [
@@ -26,7 +25,7 @@ export function ProductPurchasing() {
     };
 
     const handleMainButtonClick = () => {
-        navigate("/payment-processing/card-transfer");
+        navigate("/payment/card");
     };
 
     return (

@@ -4,13 +4,11 @@ import { Icon20Copy } from "@telegram-apps/telegram-ui/dist/icons/20/copy"
 
 import { useState } from 'react';
 
-import ReferralImage from '@/assets/images/referral.png';
 import ReferralGIF from '@/assets/gif/referral.gif';
-import { CopyLink } from '@/scripts/helpers/copyLink';
+import { copyText } from '@/scripts/helpers/copyText';
 import { botURL } from '@/constants/urls';
 import { useTelegram } from '@/scripts/hooks/useTelegram';
 import useShareMessage from '@/scripts/hooks/useShareMessage';
-import { Gif } from '@/react/components/ui/Gif/Gif';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import './ReferralPage.css'
@@ -28,7 +26,7 @@ export function ReferralPage() {
     const handleCopyLink = async () => {
         setModalActive(false)
         setSnackbarActive(true)
-        await CopyLink(getUserReferralLink({userId: WebApp.initDataUnsafe.user.id}))
+        await copyText(getUserReferralLink({userId: WebApp.initDataUnsafe.user.id}))
     }
 
     const handleShareLink = async () => {

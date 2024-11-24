@@ -9,4 +9,5 @@ input[type="file"] {
     gap: 8px;
     color: var(--tg-theme-link-color);
     width: fit-content;
+    padding-left: 5px;
 }

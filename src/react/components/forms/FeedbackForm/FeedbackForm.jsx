@@ -1,10 +1,7 @@
-import { useState } from "react";
-
 import { Rating } from "@mui/material";
-import { Textarea, Cell, IconButton, Image } from "@telegram-apps/telegram-ui";
+import { Textarea } from "@telegram-apps/telegram-ui";
 
-import CloseIcon from "@/assets/icons/close.svg?react"
-import { FileInput } from "../../inputs/FileInput/FileInput";
+import { FileSection } from "@/react/sections/FileSection/FileSection";
 
 import "./FeedbackForm.css";
 
@@ -66,39 +63,10 @@ export function FeedbackForm({ form, setForm }) {
                     />
                 </div>
                 <div className="feedback_form_files__container">
-                    {form.files && Array.from(form.files).map((file) => (
-                        <Cell
-                            key={file.name}
-                            className="feedback__file_input_cell"
-                            interactiveAnimation="opacity"
-                            after={
-                                <IconButton
-                                    size="s"
-                                    mode="plain"
-                                    className="remove_file__button"
-                                    onClick={() => handleFileRemove(file)}
-                                >
-                                    <CloseIcon />
-                                </IconButton>
-                            }
-                            before={
-                                <Image
-                                    src={URL.createObjectURL(file)}
-                                    className="feedback__file_input_image"
-                                />
-                            }
-                        >
-                            {file.name}
-                        </Cell>
-                    ))}
-                </div>
-                <div className="feedback_form_file_attachment__container">
-                    <FileInput
-                        label="Прикрепить фото"
-                        onChange={(event) => handleSetFiles(event.target.files)}
-                        className="feedback_form__file_input"
-                        multiple
-                        accept="image/jpeg, image/png"
+                    <FileSection
+                        files={form.files}
+                        handleFileRemove={handleFileRemove}
+                        handleSetFiles={handleSetFiles}
                     />
                 </div>
             </div>

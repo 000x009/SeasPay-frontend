@@ -1,0 +1,35 @@
+.copy__container {
+    border: 2px solid #272727;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.copy__icon {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.copy__icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.copy__icon-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.copy__icon-wrapper.visible {
+    opacity: 1;
+}
+
