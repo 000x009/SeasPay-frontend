@@ -13,11 +13,6 @@ const paymentSystems = [
         name: "PayPal",
         image: PaypalIcon,
     },
-    {
-        id: 2,
-        name: "Apple Pay",
-        image: ApplePayIcon,
-    },
 ];
 
 export const TransferPage = () => {

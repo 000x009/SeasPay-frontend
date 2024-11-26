@@ -3,12 +3,7 @@ import axios from 'axios';
 
 
 export class OrderAPI {
-    static listEndpoint = "/order/"
-    static getEndpoint = "/order/"
-    static createTransferEndpoint = "/order/transfer"
-    static createWithdrawEndpoint = "/order/withdraw"
-    static createDigitalProductEndpoint = "/order/digital-product"
-    static purchasePlatformProductEndpoint = "/order/purchase/platform-product"
+    static baseEndpoint = "/order/"
 
     /**
      * list orders
@@ -18,7 +13,7 @@ export class OrderAPI {
      * @returns {Promise<import('axios').AxiosResponse>}
      */
     static async list(limit, offset, initData) {
-        return axios.get(`${backendBaseURL}${this.listEndpoint}`, {
+        return axios.get(`${backendBaseURL}${this.baseEndpoint}`, {
             params: {
                 limit,
                 offset
@@ -37,7 +32,7 @@ export class OrderAPI {
      * @returns {Promise<import('axios').AxiosResponse}
      */
     static async get(order_id, initData) {
-        return axios.get(`${backendBaseURL}${this.getEndpoint}${order_id}`, {
+        return axios.get(`${backendBaseURL}${this.baseEndpoint}${order_id}`, {
             order_id: order_id,
         }, {
             headers: {

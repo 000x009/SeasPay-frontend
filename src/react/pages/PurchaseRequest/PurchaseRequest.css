@@ -1,0 +1,20 @@
+.purchase-request__container {
+    padding: 20px;
+}
+
+.purchase-request__planet-gif {
+    visibility: hidden;
+}
+
+.purchase-request__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.purchase-request__placeholder {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

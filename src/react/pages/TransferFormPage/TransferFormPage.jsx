@@ -1,9 +1,8 @@
-import { useParams } from 'react-router-dom';
 import { MainButton } from '@vkruglikov/react-telegram-web-app';
-import { Input, Subheadline } from '@telegram-apps/telegram-ui';
+import { Input, Subheadline, Image } from '@telegram-apps/telegram-ui';
 
 import SelectSection from '@/react/sections/SelectSection/SelectSection';
-
+import WriteGIF from '@/assets/gif/write_2.gif';
 import './TransferFormPage.css';
 
 const selectSectionItems = [
@@ -12,14 +11,22 @@ const selectSectionItems = [
 ];
 
 export function TransferFormPage() {
-    const { paymentSystemName } = useParams();
-
     return (
         <div className="transfer-form-page__container">
             <div className='transfer-form-page__header'>
                 <Subheadline weight='2' level='2'>
                     PayPal
                 </Subheadline>
+                <div className='transfer-form-page__image-container'>
+                    <Image
+                        src={WriteGIF}
+                        className="transfer-form-page__image"
+                        style={{
+                            width: "150px",
+                            height: "150px",
+                        }}
+                    />
+                </div>
             </div>
             <div className='transfer-form__container'>
                 <Input
