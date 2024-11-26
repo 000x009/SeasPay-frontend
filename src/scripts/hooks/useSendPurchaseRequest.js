@@ -5,7 +5,7 @@ import { queryClient } from "../shared/api/queryClient";
 
 export function useSendPurchaseRequest() {
     const sendRequestMutation = useMutation({
-        mutationKey: ['send-purchase-request'],
+        mutationKey: ['purchase-request', 'send'],
         mutationFn: async (data) => await PurchaseRequestAPI.sendRequest(data.purchaseRequestData, data.initData)
     })
 
@@ -14,7 +14,7 @@ export function useSendPurchaseRequest() {
             purchase_url: purchaseUrl
         }
         queryClient.cancelQueries({
-            queryKey: PurchaseRequestAPI.baseEndpoint
+            queryKey: ['purchase-request', 'send']
         })
         sendRequestMutation.mutate({purchaseRequestData, initData}, { onSuccess: onSuccess })
     }

@@ -5,11 +5,16 @@ import { Selectable } from "@/react/components/ui/Selectable/Selectable";
 
 import "./SelectSection.css";
 
-export default function SelectSection({ header, items }) {
+export default function SelectSection({ header, items, onChangeForm }) {
     const [selectedItem, setSelectedItem] = useState(() => {
         const defaultItem = items.find(item => item.defaultChecked);
         return defaultItem ? defaultItem.id : null;
     });
+
+    const handleItemChange = (itemId) => {
+        setSelectedItem(itemId);
+        onChangeForm(itemId);
+    };
 
     return <div className="select-section">
         <div className="select-section__header">
@@ -25,7 +30,7 @@ export default function SelectSection({ header, items }) {
                         description={item.description}
                         checked={selectedItem === item.id}
                         disabled={selectedItem === item.id}
-                        onChange={() => setSelectedItem(item.id)}
+                        onChange={() => handleItemChange(item.id)}
                     />
                 ))}
             </form>

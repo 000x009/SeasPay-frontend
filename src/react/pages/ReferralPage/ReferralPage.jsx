@@ -105,7 +105,7 @@ export function ReferralPage() {
                     <Divider className='referral_modal_divider'/>
                     <Button
                         size="l"
-                        className='referral_modal_copy__button'
+                        className='referral_modal_button__inside'
                         stretched 
                         onClick={handleCopyLink}
                         before={<Icon20Copy />}
@@ -114,7 +114,7 @@ export function ReferralPage() {
                     </Button>
                     <Button
                         size="l"
-                        className='referral_modal_share__button'
+                        className='referral_modal_button__inside'
                         stretched 
                         onClick={handleShareLink}
                     >    

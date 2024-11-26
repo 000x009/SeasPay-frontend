@@ -5,15 +5,22 @@ import { ServiceList } from "@/react/components/ui/ServiceList/ServiceList";
 import { Search } from "@/react/components/inputs/Search/Search";
 import GlobeIcon from "@/assets/icons/request_globe.svg?react";
 import ChevronForwardIcon from "@/assets/icons/chevron_forward.svg?react"
+import { Progress } from "@/react/components/ui/Progress/Progress";
+import { usePlatformList } from "@/scripts/hooks/usePlatformList";
 import "./ServicesPage.css";
 
 export function ServicesPage() {
     const navigate = useNavigate();
+    const { data, isLoading } = usePlatformList();
+
+    if (isLoading) {
+        return <Progress />
+    }
 
     return (
         <div className="services-page">
             <Search className="search-bar"/>
-            <ServiceList className="service-list"/>
+            <ServiceList className="service-list" platforms={data.platforms} total={data.total}/>
             <div className="purchase-request">
                 <Cell
                     className="purchase-request__cell"

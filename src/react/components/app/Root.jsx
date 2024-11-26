@@ -3,6 +3,7 @@ import { useEffect, useMemo } from 'react';
 
 import { App } from '@/react/components/app/App.jsx';
 import { ErrorBoundary } from '@/react/components/app/ErrorBoundary.jsx';
+import { setBackgroundMainColor } from '@/scripts/helpers/setBackgroundMainColor';
 
 /**
  * @param {unknown} error
@@ -40,6 +41,10 @@ export function Inner() {
       import('eruda').then((lib) => lib.default.init());
     }
   }, [debug]);
+
+  useEffect(() => {
+    setBackgroundMainColor();
+  }, [])
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
