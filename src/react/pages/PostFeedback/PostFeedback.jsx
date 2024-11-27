@@ -13,11 +13,11 @@ import "./PostFeedback.css";
 export function PostFeedback() {
     const navigate = useNavigate();
     const [form, setForm] = useState({
-        files: [],
         rating: 5,
         text: '',
         isTextValid: true,
     });
+    const [files, setFiles] = useState([]);
 
     const handleMainButtonClick = () => {
         if (form.text.length === 0) {
@@ -47,7 +47,7 @@ export function PostFeedback() {
                 />
             </div>
             <div className="post_feedback_form__container">
-                <FeedbackForm form={form} setForm={setForm} />
+                <FeedbackForm form={form} setForm={setForm} files={files} setFiles={setFiles} />
             </div>
             <MainButton
                 text="Опубликовать"

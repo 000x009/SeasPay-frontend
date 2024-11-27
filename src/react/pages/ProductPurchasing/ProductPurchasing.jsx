@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
-import { Breadcrumbs, Input } from "@telegram-apps/telegram-ui";
+import { Breadcrumbs } from "@telegram-apps/telegram-ui";
 
 import { Info } from "@/react/components/ui/Info/Info";
 import WarningIcon from "@/assets/icons/warning.svg?react";
-import EyeIcon from "@/assets/icons/eye.svg?react";
-import EyeOffIcon from "@/assets/icons/eye_off.svg?react";
 import SelectSection from "@/react/sections/SelectSection/SelectSection";
 import { useProduct } from "@/scripts/hooks/useProduct";
 import { Progress } from "@/react/components/ui/Progress/Progress";
+import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
+import { parseInputFields } from "@/scripts/helpers/parseInputFields";
 import "./ProductPurchasing.css";
 
 const selectSectionItems = [
@@ -23,23 +23,22 @@ export function ProductPurchasing() {
     const params = useParams();
     const { product, platform, isLoading } = useProduct(params.id);
 
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(1);
     const [formData, setFormData] = useState({});
 
-    const handlePasswordVisibilityChange = () => {
-        setIsPasswordVisible((prev) => !prev);
-    };
-
     const handleMainButtonClick = () => {
+        if (Object.keys(formData).length !== platform.login_data.length) {
+            return;
+        }
+
         if (selectedPaymentMethod === 1) {
-            navigate("/payment/card");
+            navigate("/payment/card", { state: { formData, productId: params.id } });
         } else if (selectedPaymentMethod === 2) {
-            navigate("/payment/crypto");
+            navigate("/payment/crypto", { state: { formData, productId: params.id } });
         }
     };
 
-    const handleChangeForm = (selectedItem) => {
+    const handleChangeSelectForm = (selectedItem) => {
         setSelectedPaymentMethod(selectedItem);
     };
 
@@ -71,40 +70,22 @@ export function ProductPurchasing() {
                 <Info
                     icon={<WarningIcon />}
                     header="Инструкция"
-                    body={`1. Заполните данные о вашем аккаунте BeatStars\n\n2. После покупки товара вам в личные сообщения отпишет администратор для дальнейших действий`}
+                    body={product.instruction}
                 />
             </div>
             <div className="product-purchasing__form">
-                <Input
-                    header="Почта"
-                    placeholder="example@example.com"
-                    status="default"
+                <GeneratedForm
+                    inputItems={parseInputFields(platform.login_data)}
+                    onInputChange={handleInputChange}
                     className="product-purchasing__input"
-                    name="email"
-                    onChange={handleInputChange}
-                />
-                <Input
-                    header="Пароль"
-                    placeholder="Что-то секретное..."
-                    className="product-purchasing__input"
-                    status="default"
-                    type={isPasswordVisible ? "text" : "password"}
-                    after={
-                        !isPasswordVisible ? <EyeIcon
-                            className="password-input-eye-icon"
-                                onClick={handlePasswordVisibilityChange}
-                            /> :
-                            <EyeOffIcon
-                                className="password-input-eye-icon"
-                                onClick={handlePasswordVisibilityChange}
-                            />
-                    }
-                    name="password"
-                    onChange={handleInputChange}
                 />
             </div>
             <div className="product-purchasing__select-section">
-                <SelectSection header="Способ оплаты" items={selectSectionItems} onChangeForm={handleChangeForm} />
+                <SelectSection
+                    header="Способ оплаты"
+                    items={selectSectionItems}
+                    onChangeForm={handleChangeSelectForm}
+                />
             </div>
             <MainButton text="Продолжить" onClick={handleMainButtonClick}/>
         </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Text, Caption } from "@telegram-apps/telegram-ui";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
@@ -6,19 +7,19 @@ import { MainButton } from "@vkruglikov/react-telegram-web-app";
 import CardIcon from "@/assets/icons/top_up_card.svg?react";
 import { Copy } from "@/react/components/inputs/Copy/Copy";
 import { FileSection } from "@/react/sections/FileSection/FileSection";
+import { useCreatePlatformProductOrder } from "@/scripts/hooks/useCreatePlatformProductOrder";
 import "./CardPage.css";
 
-export function CardPage() {
+
+export function CardPage({ formData, productId }) {
     const [files, setFiles] = useState([]);
+    const createProductOrder = useCreatePlatformProductOrder();
 
-    const handleFileRemove = (fileToRemove) => {
-        const updatedFiles = files.filter((file) => file !== fileToRemove);
-        setFiles(updatedFiles);
-    };
-
-    const handleSetFiles = (newFiles) => {
-        const updatedFiles = [...files, ...newFiles];
-        setFiles(updatedFiles);
+    const handleMainButtonClick = async () => {
+        if (files.length === 0) {
+            return;
+        }
+        await createProductOrder.handleCreatePlatformProductOrder(formData, files[0], productId);
     };
 
     return (
@@ -38,11 +39,10 @@ export function CardPage() {
             <div className="attachment-container">
                 <FileSection
                     files={files}
-                    handleFileRemove={handleFileRemove}
-                    handleSetFiles={handleSetFiles}
+                    setFiles={setFiles}
                 />
             </div>
-            <MainButton text="Готово"/>
+            <MainButton text="Готово" onClick={handleMainButtonClick} progress={createProductOrder.isLoading}/>
         </div>
     );
 }

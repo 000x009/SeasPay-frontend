@@ -5,7 +5,17 @@ import { FileInput } from "@/react/components/inputs/FileInput/FileInput";
 
 import "./FileSection.css";
 
-export function FileSection({files, handleFileRemove, handleSetFiles}) {
+export function FileSection({files, setFiles, multiple = false}) {
+    const handleFileRemove = (fileToRemove) => {
+        const updatedFiles = files.filter((file) => file !== fileToRemove);
+        setFiles(updatedFiles);
+    };
+
+    const handleSetFiles = (newFiles) => {
+        const updatedFiles = [...files, ...newFiles];
+        setFiles(updatedFiles);
+    };
+
     return (
         <div className="file-section__container">
             <div className="feedback_form_files__container">
@@ -40,7 +50,7 @@ export function FileSection({files, handleFileRemove, handleSetFiles}) {
                     label="Прикрепить фото"
                     onChange={(event) => handleSetFiles(event.target.files)}
                     className="feedback_form__file_input"
-                    multiple
+                    multiple={multiple}
                     accept="image/jpeg, image/png"
                 />
             </div>

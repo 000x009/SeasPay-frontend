@@ -36,16 +36,6 @@ const infoBody = [
 export function WithdrawFormPage() {
     const [files, setFiles] = useState([]);
 
-    const handleFileRemove = (fileToRemove) => {
-        const updatedFiles = files.filter((file) => file !== fileToRemove);
-        setFiles(updatedFiles);
-    };
-
-    const handleSetFiles = (newFiles) => {
-        const updatedFiles = [...files, ...newFiles];
-        setFiles(updatedFiles);
-    };
-
     return (
         <div className="withdraw-form-page__container">
             <div className='withdraw-form-page__header'>
@@ -81,8 +71,7 @@ export function WithdrawFormPage() {
                 <FileSection
                     files={files}
                     setFiles={setFiles}
-                    handleFileRemove={handleFileRemove}
-                    handleSetFiles={handleSetFiles}
+                    multiple={true}
                 />
             </div>
             <MainButton text='Подать заявку' />

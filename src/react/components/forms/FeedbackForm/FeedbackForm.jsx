@@ -6,7 +6,7 @@ import { FileSection } from "@/react/sections/FileSection/FileSection";
 import "./FeedbackForm.css";
 
 
-export function FeedbackForm({ form, setForm }) {
+export function FeedbackForm({ form, setForm, files, setFiles }) {
     const handleRatingChange = (event, newValue) => {
         if (newValue === null || newValue === 0) {
             return;
@@ -22,22 +22,6 @@ export function FeedbackForm({ form, setForm }) {
             ...prev,
             text: event.target.value,
             isTextValid: true,
-        }));
-    };
-
-    const handleFileRemove = (fileToRemove) => {
-        const updatedFiles = form.files.filter((file) => file !== fileToRemove);
-        setForm(prev => ({
-            ...prev,
-            files: updatedFiles,
-        }));
-    };
-
-    const handleSetFiles = (newFiles) => {
-        const updatedFiles = [...form.files, ...newFiles];
-        setForm(prev => ({
-            ...prev,
-            files: updatedFiles,
         }));
     };
 
@@ -64,9 +48,9 @@ export function FeedbackForm({ form, setForm }) {
                 </div>
                 <div className="feedback_form_files__container">
                     <FileSection
-                        files={form.files}
-                        handleFileRemove={handleFileRemove}
-                        handleSetFiles={handleSetFiles}
+                        files={files}
+                        setFiles={setFiles}
+                        multiple={true}
                     />
                 </div>
             </div>
