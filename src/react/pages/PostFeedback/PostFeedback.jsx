@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { Placeholder, Image } from "@telegram-apps/telegram-ui";
 import WriteGIF from "@/assets/gif/write.gif";
+import { usePostFeedback } from "@/scripts/hooks/usePostFeedback";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 
 import { FeedbackForm } from "@/react/components/forms/FeedbackForm/FeedbackForm";
@@ -18,8 +19,9 @@ export function PostFeedback() {
         isTextValid: true,
     });
     const [files, setFiles] = useState([]);
+    const postFeedback = usePostFeedback();
 
-    const handleMainButtonClick = () => {
+    const handleMainButtonClick = async() => {
         if (form.text.length === 0) {
             setForm(prev => ({
                 ...prev,
@@ -27,7 +29,7 @@ export function PostFeedback() {
             }));
             return;
         }
-        navigate("/");
+        await postFeedback.handlePostFeedback(form, files);
     }
 
     return (
@@ -53,6 +55,7 @@ export function PostFeedback() {
                 text="Опубликовать"
                 className="post_feedback__main_button"
                 onClick={handleMainButtonClick}
+                progress={postFeedback.isLoading}
             />
         </>
     );

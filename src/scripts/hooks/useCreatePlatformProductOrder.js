@@ -19,9 +19,7 @@ export function useCreatePlatformProductOrder() {
         mutationKey: ['order', 'create', 'platform-product'],
         mutationFn: async (data) => {
             const response = await CloudAPI.getObjectPresignedPost(data.filename, WebApp.initData);
-            console.log("response", response);
             const presignedPostResponse = await AWSCloudAPI.uploadObjectPresignedPost(response.data.url, response.data.data, data.file);
-            console.log("presignedPostResponse", presignedPostResponse);
             if (presignedPostResponse.status === 204) {
                 return await OrderAPI.createPlatformProductOrderCard(
                     {
