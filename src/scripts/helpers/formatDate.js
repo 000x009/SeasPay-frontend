@@ -1,22 +1,24 @@
 export function formatDate(dateString) {
-    const date = new Date(dateString);
+    const date = new Date(dateString.value);
     const today = new Date();
-    const daysDifference = today.getDate() - date.getDate();
+    
+    const diffTime = today.getTime() - date.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-    if (date.getDate() === today.getDate()) {
+    if (diffDays === 0) {
         return "Сегодня";
     }
 
-    if (date.getDate() === today.getDate() - 1) {
+    if (diffDays === 1) {
         return "1 день назад";
     }
 
-    if (isWithinRange(daysDifference, 2, 4)) {
-        return `${daysDifference} дня назад`;
+    if (isWithinRange(diffDays, 2, 4)) {
+        return `${diffDays} дня назад`;
     }
 
-    if (isWithinRange(daysDifference, 5, 6)) {
-        return `${daysDifference} дней назад`;
+    if (isWithinRange(diffDays, 5, 6)) {
+        return `${diffDays} дней назад`;
     }
 
     return formatToRussianDate(date);

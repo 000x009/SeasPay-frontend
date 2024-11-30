@@ -11,4 +11,18 @@ export class FeedbackAPI {
             { headers: { 'Authorization': initData } }
         );
     }
+
+    static async getFeedbackList(data) {
+        return await axios.get(
+            `${backendBaseURL}${FeedbackAPI.baseEndpoint}`, {
+                params: data
+            }
+        );
+    }
+
+    static async getFeedback(data) {
+        return await axios.get(
+            `${backendBaseURL}${FeedbackAPI.baseEndpoint}${data.feedbackID}`
+        );
+    }
 }

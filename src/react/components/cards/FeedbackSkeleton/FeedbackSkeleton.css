@@ -1,0 +1,10 @@
+.feedback_skeleton__container {
+    display: flex;
+    background-color: var(--tg-theme-secondary-bg-color);
+    flex-direction: column;
+    width: 380px;
+    height: 140px;
+    border-radius: 23px;
+    box-sizing: border-box;
+    padding: 20px;
+}

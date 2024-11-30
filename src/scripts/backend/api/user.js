@@ -34,7 +34,6 @@ export class UserAPI {
                 }
             }
         );
-        console.log("response", response);
         return response;
     }
 
@@ -45,7 +44,6 @@ export class UserAPI {
      * @returns {Promise<import('axios').AxiosResponse}
      */
     static async login(initData) {
-        console.log("initData", initData);
         return await axios.post(
             `${backendBaseURL}${this.loginEndpoint}`,
             {},

@@ -40,7 +40,7 @@ export function usePostFeedback() {
             );
         },
         onSuccess: () => {
-            navigate("/");
+            navigate("/feedbacks");
         }
     });
 
@@ -51,6 +51,9 @@ export function usePostFeedback() {
         mutation.mutate({
             attachments: attachments,
             formData: formData,
+        });
+        queryClient.invalidateQueries({
+            queryKey: ['feedbacks']
         });
     };
 

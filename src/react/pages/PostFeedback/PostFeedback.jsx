@@ -2,13 +2,26 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { Placeholder, Image } from "@telegram-apps/telegram-ui";
-import WriteGIF from "@/assets/gif/write.gif";
+import AngryDuck from "@/assets/gif/angry_duck.gif";
+import VietnamDuck from "@/assets/gif/vietnam_duck.gif";
+import LovelyDuck from "@/assets/gif/lovely_duck.gif";
+import ThankfulDuck from "@/assets/gif/thankful_duck.gif";
+import DepressedDuck from "@/assets/gif/depressed_duck.gif";
 import { usePostFeedback } from "@/scripts/hooks/usePostFeedback";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 
 import { FeedbackForm } from "@/react/components/forms/FeedbackForm/FeedbackForm";
 
 import "./PostFeedback.css";
+
+
+const mainImage = {
+    1: VietnamDuck,
+    2: AngryDuck,
+    3: DepressedDuck,
+    4: ThankfulDuck,
+    5: LovelyDuck,
+}
 
 
 export function PostFeedback() {
@@ -40,7 +53,7 @@ export function PostFeedback() {
                     className='post_feedback__placeholder'
                 />
                 <Image
-                    src={WriteGIF}
+                    src={mainImage[form.rating]}
                     className='post_feedback__image'
                     style={{
                         width: "150px",
