@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { List, Cell } from "@telegram-apps/telegram-ui";
 import ChevronForwardIcon from "@/assets/icons/chevron_forward.svg?react"
 import DetailsIcon from "@/assets/icons/details.svg?react"
+import ReferralIcon from "@/assets/icons/referral_system.svg?react"
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import "./ProfileCellList.css"
@@ -13,6 +14,16 @@ export function ProfileCellList() {
     return (
         <div className="cell_list__container">
             <List className="cell_list">
+                <Cell
+                    className="list_item"
+                    description="Пригласить друга"
+                    before={<ReferralIcon/>}
+                    after={<ChevronForwardIcon/>}
+                    onClick={() => navigate("/referral")}
+                    interactiveAnimation="background"
+                >
+                    Реферальная система
+                </Cell>
                 <Cell
                     className="list_item"
                     description="Управляйте вашими реквизитами"

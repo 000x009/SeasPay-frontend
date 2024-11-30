@@ -1,6 +1,6 @@
 import { List, Cell } from "@telegram-apps/telegram-ui";
-import ReferralIcon from "@/assets/icons/referral_system.svg?react"
 import FeedbacksIcon from "@/assets/icons/feedbacks.svg?react"
+import BankIcon from "@/assets/icons/bank.svg?react"
 import ChevronForwardIcon from "@/assets/icons/chevron_forward.svg?react"
 
 import { useNavigate } from "react-router-dom";
@@ -16,13 +16,13 @@ export function MainCellList() {
             <List className="cell_list">
                 <Cell
                     className="list_item"
-                    description="Пригласить друга"
-                    before={<ReferralIcon/>}
+                    description="PayPal, Visa..."
+                    before={<BankIcon/>}
                     after={<ChevronForwardIcon/>}
-                    onClick={() => navigate("/referral")}
                     interactiveAnimation="background"
+                    onClick={() => navigate("/service-requisites")}
                 >
-                    Реферальная система
+                    Наши реквизиты
                 </Cell>
                 <Cell
                     className="list_item"

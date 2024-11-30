@@ -1,9 +1,7 @@
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import { App } from '@/react/components/app/App.jsx';
 import { ErrorBoundary } from '@/react/components/app/ErrorBoundary.jsx';
-import { setBackgroundMainColor } from '@/scripts/helpers/setBackgroundMainColor';
 
 /**
  * @param {unknown} error
@@ -32,9 +30,6 @@ function ErrorBoundaryError({ error }) {
 export function Inner() {
   const WebApp = window.Telegram.WebApp;
   const debug = WebApp.initDataUnsafe.start_param === 'debug';
-  const manifestUrl = useMemo(() => {
-    return new URL('tonconnect-manifest.json', window.location.href).toString();
-  }, []);
 
   useEffect(() => {
     if (debug) {
@@ -42,15 +37,7 @@ export function Inner() {
     }
   }, [debug]);
 
-  useEffect(() => {
-    setBackgroundMainColor();
-  }, [])
-
-  return (
-    <TonConnectUIProvider manifestUrl={manifestUrl}>
-      <App/>
-    </TonConnectUIProvider>
-  );
+  return <App/>
 }
 
 /**

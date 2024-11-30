@@ -16,7 +16,7 @@
 
 .withdraw-form__select-item {
     position: relative;
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
 }
 
 .withdraw-form__select {

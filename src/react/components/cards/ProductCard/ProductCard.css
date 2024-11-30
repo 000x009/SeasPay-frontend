@@ -18,7 +18,7 @@
 }
 @media (hover: hover) and (pointer: fine) {
     .product-card:hover {
-        background: var(--tg-theme-secondary-bg-color);
+        background: var(--tg-theme-bg-color);
     }
 }
 

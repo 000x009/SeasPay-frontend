@@ -71,6 +71,7 @@
     transform: translateX(-50%);
     width: calc(100% - 20px);
     margin: 0;
+    background-color: var(--tg-theme-button-color);
     padding: 12px 16px;
 }
 

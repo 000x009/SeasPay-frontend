@@ -6,7 +6,7 @@
     box-sizing: border-box;
     padding: 15px;
     border-radius: 20px;
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
     justify-content: center;
     align-items: center;
     width: 100%;

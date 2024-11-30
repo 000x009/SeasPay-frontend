@@ -6,7 +6,7 @@
 }
 
 .purchase-request__cell {
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
     border-radius: 16px;
     width: 100%;
     box-sizing: border-box;

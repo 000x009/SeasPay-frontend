@@ -1,6 +1,6 @@
 .feedback_card__container {
     display: flex;
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
     flex-direction: column;
     width: 380px;
     height: 140px;

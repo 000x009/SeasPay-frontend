@@ -49,14 +49,10 @@ export function App() {
   
   useEffect(() => {
     const login = async () => {
-      const response = await UserAPI.login(WebApp.initData);
+      await UserAPI.login(WebApp.initData);
     };
     login();
   }, []);
-
-  useEffect(() => {
-    WebApp.setBackgroundColor("#0f0f0f")
-  }, [])
 
   return (
     <QueryClientProvider client={queryClient}>

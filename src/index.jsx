@@ -1,13 +1,14 @@
 import ReactDOM from 'react-dom/client';
 
 import { Root } from '@/react/components/app/Root.jsx';
+import { setBackgroundMainColor } from '@/scripts/helpers/setBackgroundMainColor';
 
-import '@telegram-apps/telegram-ui/dist/styles.css';
 import './index.css';
+
 
 const root = document.getElementById('root')
 
+
 ReactDOM.createRoot(root).render(<Root/>);
 
-root.style.setProperty('--tg-theme-bg-color', '#0f0f0f');
-root.style.setProperty('--tg-theme-secondary-bg-color', '#212121');
+setBackgroundMainColor(root);
