@@ -5,7 +5,6 @@ import { FeedbackCards } from "@/react/sections/FeedbackCards/FeedbackCards";
 import { InfiniteScroll } from "@/react/sections/InfiniteScroll/InfiniteScroll";
 import { FeedbackHeader } from "@/react/sections/FeedbackHeader/FeedbackHeader";
 import { useFeedbackList } from "@/scripts/hooks/useFeedbackList";
-import { Progress } from "@/react/components/ui/Progress/Progress";
 
 import "./FeedbacksPage.css"
 
@@ -23,10 +22,6 @@ export function FeedbacksPage() {
         navigate("/feedbacks/post");
     }
 
-    if (isLoading) {
-        return <Progress />;
-    }
-
     return (
         <>
             <FeedbackHeader />
@@ -36,8 +31,9 @@ export function FeedbacksPage() {
                 fetchNextPage={() => hasNextPage && fetchNextPage()}
             >
                 <FeedbackCards
-                    feedbacks={data.pages.flat()}
+                    feedbacks={data?.pages?.flat() ?? []}
                     isFetchingNextPage={isFetchingNextPage}
+                    isLoading={isLoading}
                 />
             </InfiniteScroll>
             <MainButton
