@@ -1,0 +1,11 @@
+.transaction_card {
+    padding: 10px;
+    border-radius: 10px;
+    gap: 15px;
+    max-height: 50px;
+}
+
+.transaction_card_status {
+    display: flex;
+    padding-top: 0px;
+}
