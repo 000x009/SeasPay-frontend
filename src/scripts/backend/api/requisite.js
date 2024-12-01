@@ -21,4 +21,20 @@ export class RequisiteAPI {
             }
         )
     }
+
+    static async createCryptoRequisite(data, initData) {
+        return axios.post(
+            `${backendBaseURL}${this.baseEndpoint}crypto`,
+            data,
+            { headers: { "Authorization": `${initData}` } }
+        )
+    }
+
+    static async createCardRequisite(data, initData) {
+        return axios.post(
+            `${backendBaseURL}${this.baseEndpoint}card`,
+            data,
+            { headers: { "Authorization": `${initData}` } }
+        )
+    }
 }
