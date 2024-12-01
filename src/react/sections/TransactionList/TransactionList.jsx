@@ -1,9 +1,12 @@
 import { Caption } from "@telegram-apps/telegram-ui";
+import { useNavigate } from "react-router-dom";
 import { TransactionCard } from "@/react/components/cards/TransactionCard/TransactionCard";
 import { TransactionListSkeleton } from "../TransactionListSkeleton/TransactionListSkeleton";
 import "./TransactionList.css"
 
 export function TransactionList({transactions, isFetchingNextPage, isLoading, total }) {
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="transaction_section__caption">
@@ -11,9 +14,11 @@ export function TransactionList({transactions, isFetchingNextPage, isLoading, to
             </div>
             <div className="transaction_cards_container">
                 {transactions.map((transaction) => (
-                    <>
-                        <TransactionCard key={transaction.id} transaction={transaction} />
-                    </>
+                    <TransactionCard
+                        key={transaction.id}
+                        transaction={transaction}
+                        onClick={() => navigate(`/transaction/${transaction.id}`)}
+                    />
                 ))}
                 {(isFetchingNextPage || isLoading) && <TransactionListSkeleton remaining={total - (transactions?.length || 0)} />}
             </div>

@@ -1,0 +1,4 @@
+.transaction_details_header {
+    padding: 10px 20px;
+    color: var(--tg-theme-hint-color);
+}

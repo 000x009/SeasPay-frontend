@@ -14,6 +14,7 @@ import { WithdrawPage } from '@/react/pages/WithdrawPage/WithdrawPage';
 import { TransferFormPage } from '@/react/pages/TransferFormPage/TransferFormPage';
 import { WithdrawFormPage } from '@/react/pages/WithdrawFormPage/WithdrawFormPage';
 import { PurchaseRequest } from '@/react/pages/PurchaseRequest/PurchaseRequest';
+import { TransactionDetails } from '@/react/pages/TransactionDetails/TransactionDetails';
 
 /**
  * @typedef {object} Route
@@ -44,4 +45,5 @@ export const routes = [
     {path: '/withdraw', Component: WithdrawPage},
     {path: '/withdraw/form', Component: WithdrawFormPage},
     {path: '/purchase-request', Component: PurchaseRequest},
+    {path: '/transaction/:id', Component: TransactionDetails},
 ];
