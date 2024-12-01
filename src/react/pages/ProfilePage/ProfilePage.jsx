@@ -1,3 +1,4 @@
+import { retrieveLaunchParams } from "@telegram-apps/sdk";
 import {
     Avatar,
     Title,
@@ -7,31 +8,35 @@ import {
     Subheadline,
     Text
 } from "@telegram-apps/telegram-ui";
-import { useUser } from "@/scripts/hooks/useUser";
-import { useTelegram } from "@/scripts/hooks/useTelegram";
 
+import { useCommission } from "@/scripts/hooks/useCommission";
 import {ProfileCellList} from "@/react/components/ui/ProfileCellList/ProfileCellList";
 import { Link } from "@/react/components/ui/Link/Link";
-
+import { Progress } from "@/react/components/ui/Progress/Progress";
+import { getCommissionProgress } from "@/scripts/helpers/getCommissionProgress";
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import "./ProfilePage.css";
 
 
 export function ProfilePage() {
-    const { user } = useUser();
-    const { telegram_user } = useTelegram();
+    const { commission, isLoading } = useCommission();
+    const { initData } = retrieveLaunchParams();
+
+    if (isLoading) {
+        return <Progress/>
+    }
 
     return (
         <div className="profile__container">
             <div className="profile_avatar__container">
                 <Avatar
                     size={96}
-                    src={telegram_user.photo_url}
-                    acronym={telegram_user.first_name?.[0] || ''}
+                    src={initData.user.photoUrl}
+                    acronym={initData.user.firstName?.[0] || ''}
                     className="avatar"
                 />
                 <Title className="username">
-                    {telegram_user.first_name} {telegram_user.last_name || ''}
+                    {initData.user.firstName} {initData.user.lastName || ''}
                 </Title>
             </div>
             <div className="commission_section__container">
@@ -47,19 +52,19 @@ export function ProfilePage() {
                 >
                     <div className="commission_section__progress_container">
                         <Subheadline className="commission_section__progress_text" level={1}>
-                            Переводы: {user?.commission || 15}%
+                            Переводы: {commission.transfer}%
                         </Subheadline>
                         <CommissionProgress
-                            value={user?.commission || 100}
+                            value={getCommissionProgress(commission.transfer)}
                             className="commission_section__progress"
                         />
                     </div>
                     <div className="commission_section__progress_container">
                         <Subheadline className="commission_section__progress_text" level={1}>
-                            Выводы: {user?.commission || 15}%
+                            Выводы: {commission.withdraw}%
                         </Subheadline>
                         <CommissionProgress
-                            value={user?.commission || 100}
+                            value={getCommissionProgress(commission.withdraw)}
                             className="commission_section__progress"
                         />
                     </div>
