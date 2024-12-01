@@ -9,3 +9,10 @@
     display: flex;
     padding-top: 0px;
 }
+
+.transaction_card_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}

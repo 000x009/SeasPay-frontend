@@ -1,21 +1,44 @@
-import { useQuery } from "@tanstack/react-query";
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
+
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { OrderAPI } from "@/scripts/backend/api/order";
+
+const DEFAULT_PAGE_SIZE = 5;
 
 
 /**
- * @param {number} param0.limit
- * @param {number} param0.offset
  * @returns {Object}
  */
-export function useTransactions({ limit, offset }) {
-    const WebApp = window.Telegram.WebApp;
-    const {data, isLoading} = useQuery({
-        queryKey: ['transactions', limit, offset],
-        queryFn: async () => {
-            const response = await OrderAPI.list(limit, offset, WebApp.initData);
-            return response.data;
-        },
-    });
+export function useTransactions() {
+    const { initDataRaw } = retrieveLaunchParams();
 
-    return { transactions: data, isLoading };
+    const {
+        data,
+        fetchNextPage,
+        isFetchingNextPage,
+        hasNextPage,
+        isLoading,
+        isError,
+    } = useInfiniteQuery({
+        queryKey: ['orders'],
+        queryFn: async ({ pageParam }) => {
+            const transactions = await OrderAPI.list(DEFAULT_PAGE_SIZE, pageParam, initDataRaw);
+            return transactions.data;
+        },
+        initialPageParam: 0,
+        getNextPageParam: (lastPage, allPages) => {
+            const nextPage = lastPage?.length ? allPages?.length + 1 : undefined;
+            return nextPage;
+        },
+    })
+
+    return {
+        data,
+        items: data?.pages?.flat(),
+        fetchNextPage,
+        isFetchingNextPage,
+        hasNextPage,
+        isLoading,
+        isError,
+    };
 }

@@ -1,0 +1,14 @@
+.transaction_section__container {
+    padding: 0px 20px;
+}
+
+.transaction_section__headline {
+    color: var(--tg-theme-hint-color);
+}
+
+.transaction_section__list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
