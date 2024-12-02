@@ -18,7 +18,10 @@ export function ProductsPage() {
 
     return (
         <div className="products-page">
-            <Breadcrumbs className="breadcrumbs">
+            <Breadcrumbs className="breadcrumbs" divider="slash">
+                <Breadcrumbs.Item>
+                    Сервисы
+                </Breadcrumbs.Item>
                 <Breadcrumbs.Item>
                     {platform.name}
                 </Breadcrumbs.Item>

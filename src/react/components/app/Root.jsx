@@ -42,10 +42,6 @@ export function Inner() {
     }
   }, [debug]);
 
-  useEffect(() => {
-    setBackgroundMainColor();
-  }, [])
-
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
       <App/>

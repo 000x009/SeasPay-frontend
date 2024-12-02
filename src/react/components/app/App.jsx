@@ -14,6 +14,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import { routes } from '@/navigation/routes.jsx';
 import { useTelegram } from '@/scripts/hooks/useTelegram';
 import { UserAPI } from '@/scripts/backend/api/user';
+import { setTheme } from '@/scripts/helpers/setTheme';
 
 function BackButtonManipulator() {
   const location = useLocation();
@@ -49,13 +50,13 @@ export function App() {
   
   useEffect(() => {
     const login = async () => {
-      const response = await UserAPI.login(WebApp.initData);
+      await UserAPI.login(WebApp.initData);
     };
     login();
   }, []);
 
   useEffect(() => {
-    WebApp.setBackgroundColor("#0f0f0f")
+    setTheme();
   }, [])
 
   return (

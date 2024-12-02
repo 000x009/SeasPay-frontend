@@ -14,7 +14,7 @@ export function GeneratedForm({
     ...props
 }) {
     return (
-        <form className="generated__form" {...props}>
+        <form className="generated__form" {...props} >
             {inputItems.map((item) => {
                 const commonProps = {
                     key: item.name,

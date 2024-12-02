@@ -34,7 +34,7 @@
 }
 
 .details_modal {
-    background-color: #1C1C1E;
+    background-color: var(--tg-theme-bg-color);
 }
 
 .details_modal_close {
