@@ -10,7 +10,7 @@ export function RequisitesList({ items, isFetchingNextPage, total }) {
 
     return (
         <div className="requisites_cards_container">
-            {items.length > 0 && items?.map((item) => (
+            {total > 0 && items?.map((item) => (
                 <RequisiteCard
                     key={item.id}
                     requisite={item}

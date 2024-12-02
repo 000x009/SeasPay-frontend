@@ -7,13 +7,21 @@ import "./FileSection.css";
 
 export function FileSection({files, setFiles, multiple = false}) {
     const handleFileRemove = (fileToRemove) => {
-        const updatedFiles = files.filter((file) => file !== fileToRemove);
-        setFiles(updatedFiles);
+        if (multiple) {
+            const updatedFiles = files.filter((file) => file !== fileToRemove);
+            setFiles(updatedFiles);
+        } else {
+            setFiles(null);
+        }
     };
 
     const handleSetFiles = (newFiles) => {
-        const updatedFiles = [...files, ...newFiles];
-        setFiles(updatedFiles);
+        if (multiple) {
+            const updatedFiles = [...files, ...newFiles];
+            setFiles(updatedFiles);
+        } else {
+            setFiles(newFiles);
+        }
     };
 
     return (

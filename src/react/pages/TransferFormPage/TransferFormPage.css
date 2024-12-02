@@ -1,7 +1,7 @@
 .transfer-form-page__container {
     display: flex;
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .select-section__container {

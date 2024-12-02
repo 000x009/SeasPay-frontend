@@ -15,6 +15,7 @@ import { TransferFormPage } from '@/react/pages/TransferFormPage/TransferFormPag
 import { WithdrawFormPage } from '@/react/pages/WithdrawFormPage/WithdrawFormPage';
 import { PurchaseRequest } from '@/react/pages/PurchaseRequest/PurchaseRequest';
 import { TransactionDetails } from '@/react/pages/TransactionDetails/TransactionDetails';
+import { CardPage } from '@/react/pages/PaymentPage/components/CardPage/CardPage';
 
 /**
  * @typedef {object} Route
@@ -39,7 +40,8 @@ export const routes = [
     {path: '/services/:id', Component: ProductsPage},
     {path: '/products/purchase/:id', Component: ProductPurchasing},
     {path: '/payment', Component: PaymentPage},
-    {path: '/payment/:type', Component: PaymentPage}, 
+    {path: '/payment/:type', Component: PaymentPage},
+    // {path: '/payment/card', Component: CardPage},
     {path: '/transfer', Component: TransferPage},
     {path: '/transfer/form/', Component: TransferFormPage},
     {path: '/withdraw', Component: WithdrawPage},

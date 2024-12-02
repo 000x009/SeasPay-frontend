@@ -5,7 +5,7 @@ import CheckIcon from "@/assets/icons/check_24.svg?react";
 import { copyText } from "@/scripts/helpers/copyText";
 import "./Copy.css";
 
-export function Copy({text}) {
+export function Copy({text, locationState}) {
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = async () => {
@@ -13,7 +13,7 @@ export function Copy({text}) {
         setIsCopied(true);
         setTimeout(() => {
             setIsCopied(false);
-        }, 5000);
+        }, 2000);
     }
 
     return (

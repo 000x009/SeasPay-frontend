@@ -7,6 +7,8 @@ import "./RequisiteCard.css"
 export function RequisiteCard({ requisite, props }) {
     const config = REQUISITE_CONFIG[requisite.type];
 
+    console.log("requisite", requisite)
+
     return (
         <Cell
             className="requisite__card"

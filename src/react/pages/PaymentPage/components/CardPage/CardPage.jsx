@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import { Text, Caption } from "@telegram-apps/telegram-ui";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
@@ -8,19 +7,44 @@ import CardIcon from "@/assets/icons/top_up_card.svg?react";
 import { Copy } from "@/react/components/inputs/Copy/Copy";
 import { FileSection } from "@/react/sections/FileSection/FileSection";
 import { useCreatePlatformProductOrder } from "@/scripts/hooks/useCreatePlatformProductOrder";
+import { useCreateTransferOrder } from "@/scripts/hooks/useCreateTransferOrder";
+import { useCommission } from "@/scripts/hooks/useCommission";
+import { Progress } from "@/react/components/ui/Progress/Progress";
+import { currencyCommissionConvertor } from "@/scripts/helpers/currencyCommissionConvertor";
 import "./CardPage.css";
 
 
-export function CardPage({ formData, productId }) {
-    const [files, setFiles] = useState([]);
+export function CardPage({ locationState }) {
+    const [file, setFile] = useState(null);
+    const [convertedAmount, setConvertedAmount] = useState(null);
     const createProductOrder = useCreatePlatformProductOrder();
+    const createTransferOrder = useCreateTransferOrder();
+    const { commission, isLoading } = useCommission();
 
     const handleMainButtonClick = async () => {
-        if (files.length === 0) {
+        if (!file) {
             return;
         }
-        await createProductOrder.handleCreatePlatformProductOrder(formData, files[0], productId);
+        if (locationState.payment_type === "product") {
+            await createProductOrder.handleCreatePlatformProductOrder(locationState.data.form, file[0], locationState.productId);
+        } else if (locationState.payment_type === "transfer") {
+            await createTransferOrder.handleCreateTransferOrder(locationState.data.form, file[0]);
+        }
     };
+
+    useEffect(() => {
+        async function convertAmount() {
+            if (commission && locationState.amount) {
+                const amount = await currencyCommissionConvertor(locationState.amount, commission.transfer);
+                setConvertedAmount(amount);
+            }
+        }
+        convertAmount();
+    }, [commission, locationState.amount]);
+
+    if (isLoading) {
+        return <Progress />
+    }
 
     return (
         <div className="card-page">
@@ -29,7 +53,7 @@ export function CardPage({ formData, productId }) {
             </div>
             <div className="card-page__title-container">
                 <Text weight="2">
-                    Сделайте перевод денежных средств по предоставленным реквизитам ниже и прикрепите фото чека
+                    Сделайте перевод денежных средств на сумму {convertedAmount}₽ по предоставленным реквизитам ниже и прикрепите фото чека
                 </Text>
             </div>
             <div className="card-page__copy-container">
@@ -38,11 +62,16 @@ export function CardPage({ formData, productId }) {
             </div>
             <div className="attachment-container">
                 <FileSection
-                    files={files}
-                    setFiles={setFiles}
+                    files={file}
+                    setFiles={setFile}
+                    multiple={false}
                 />
             </div>
-            <MainButton text="Готово" onClick={handleMainButtonClick} progress={createProductOrder.isLoading}/>
+            <MainButton
+                text="Готово"
+                onClick={handleMainButtonClick}
+                progress={createProductOrder.isLoading || createTransferOrder.isLoading}
+            />
         </div>
     );
 }

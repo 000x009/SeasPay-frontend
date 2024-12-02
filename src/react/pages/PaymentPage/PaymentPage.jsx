@@ -8,12 +8,11 @@ import "./PaymentPage.css";
 export function PaymentPage() {
     const { type } = useParams();
     const location = useLocation();
-    const formData = location.state?.formData;
-    const productId = location.state?.productId;
+    const locationState = location.state;
 
     return (
         <div className="payment-page">
-            {type === "card" ? <CardPage formData={formData} productId={productId} /> : <CryptoPage formData={formData} />}
+            {type === "card" ? <CardPage locationState={locationState} /> : <CryptoPage locationState={locationState} />}
         </div>
     );
 }

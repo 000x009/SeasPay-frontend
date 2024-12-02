@@ -29,7 +29,7 @@ export function PaymentDetails() {
                 fetchNextPage={fetchNextPage}
             >
                 <RequisitesList
-                    items={items}
+                    items={items.requisites}
                     isFetchingNextPage={isFetchingNextPage}
                     total={total}
                 />

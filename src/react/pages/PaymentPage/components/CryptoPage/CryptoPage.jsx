@@ -4,7 +4,7 @@ import { MainButton } from "@vkruglikov/react-telegram-web-app";
 import ChequeIcon from "@/assets/icons/cheque.svg?react";
 import "./CryptoPage.css";
 
-export function CryptoPage({ formData }) {
+export function CryptoPage({ locationState }) {
     return (
         <div className="crypto-page">
             <div className="crypto-page__icon-container">

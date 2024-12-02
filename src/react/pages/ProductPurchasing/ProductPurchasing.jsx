@@ -31,10 +31,20 @@ export function ProductPurchasing() {
             return;
         }
 
+        const state = {
+            state: {
+                payment_type: "product",
+                data: {
+                    form: formData,
+                    productId: params.id,
+                }
+            }
+        }
+
         if (selectedPaymentMethod === 1) {
-            navigate("/payment/card", { state: { formData, productId: params.id } });
+            navigate("/payment/card", state);
         } else if (selectedPaymentMethod === 2) {
-            navigate("/payment/crypto", { state: { formData, productId: params.id } });
+            navigate("/payment/crypto", state);
         }
     };
 

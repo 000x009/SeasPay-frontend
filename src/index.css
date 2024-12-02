@@ -21,3 +21,12 @@ img {
 ::-moz-selection {
   background: rgba(0, 132, 255, 0.3);
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--tg-theme-bg-color) inset !important;
+    -webkit-text-fill-color: var(--tg-theme-text-color) !important;
+    caret-color: var(--tg-theme-text-color);
+}
