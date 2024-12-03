@@ -57,6 +57,7 @@ export function App() {
 
   useEffect(() => {
     setTheme();
+    console.log("WebApp", WebApp.initData)
   }, [])
 
   return (

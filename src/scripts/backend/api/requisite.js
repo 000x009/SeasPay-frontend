@@ -37,4 +37,8 @@ export class RequisiteAPI {
             { headers: { "Authorization": `${initData}` } }
         )
     }
+
+    static async deleteRequisite(id, initData) {
+        return axios.delete(`${backendBaseURL}${this.baseEndpoint}${id}`, { headers: { "Authorization": `${initData}` } })
+    }
 }

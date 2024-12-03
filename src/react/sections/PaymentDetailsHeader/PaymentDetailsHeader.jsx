@@ -1,8 +1,7 @@
 import { Placeholder, Image } from "@telegram-apps/telegram-ui"
 
-import DetailsPageImage from "@/assets/images/details.png"
 import DuckNotFound from "@/assets/gif/duck_not_found.gif"
-import { Divider as DividerComponent } from "@/react/components/ui/Divider/Divider"
+import CardGIF from "@/assets/gif/card.gif"
 
 export default function PaymentDetailsHeader({ isRequisitesExist }) {
     return (
@@ -14,16 +13,13 @@ export default function PaymentDetailsHeader({ isRequisitesExist }) {
                     className='payment_details_placeholder'
                 />
                     <Image
-                        src={DetailsPageImage}
+                        src={CardGIF}
                         className='details_image'
                         style={{
-                        width: "147px",
-                        height: "105px",
+                        width: "150px",
+                        height: "150px",
                     }}
                 />
-                    <div className="details_divider__container">
-                        <DividerComponent className='details__divider'/>
-                    </div>
                 </div>) : (
                     <div className="payment_details_empty__container">
                         <Image

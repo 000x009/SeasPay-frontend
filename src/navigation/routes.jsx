@@ -15,7 +15,7 @@ import { TransferFormPage } from '@/react/pages/TransferFormPage/TransferFormPag
 import { WithdrawFormPage } from '@/react/pages/WithdrawFormPage/WithdrawFormPage';
 import { PurchaseRequest } from '@/react/pages/PurchaseRequest/PurchaseRequest';
 import { TransactionDetails } from '@/react/pages/TransactionDetails/TransactionDetails';
-import { CardPage } from '@/react/pages/PaymentPage/components/CardPage/CardPage';
+import { RequisiteTypeSelecting } from '@/react/pages/RequisiteTypeSelecting/RequisiteTypeSelecting';
 
 /**
  * @typedef {object} Route
@@ -41,11 +41,11 @@ export const routes = [
     {path: '/products/purchase/:id', Component: ProductPurchasing},
     {path: '/payment', Component: PaymentPage},
     {path: '/payment/:type', Component: PaymentPage},
-    // {path: '/payment/card', Component: CardPage},
     {path: '/transfer', Component: TransferPage},
     {path: '/transfer/form/', Component: TransferFormPage},
     {path: '/withdraw', Component: WithdrawPage},
     {path: '/withdraw/form', Component: WithdrawFormPage},
     {path: '/purchase-request', Component: PurchaseRequest},
     {path: '/transaction/:id', Component: TransactionDetails},
+    {path: '/payment-details/choose', Component: RequisiteTypeSelecting},
 ];

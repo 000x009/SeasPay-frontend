@@ -11,6 +11,7 @@ const DEFAULT_PAGE_SIZE = 5;
  */
 export function useTransactions() {
     const { initDataRaw } = retrieveLaunchParams();
+    console.log("initDataRaw", initDataRaw)
 
     const {
         data,

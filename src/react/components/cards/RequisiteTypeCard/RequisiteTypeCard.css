@@ -1,0 +1,11 @@
+.requisite_type_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 15px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    padding: 20px 30px;
+    min-height: 100px;
+}
