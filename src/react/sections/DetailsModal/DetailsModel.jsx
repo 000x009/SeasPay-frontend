@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Placeholder, Modal, Button, Divider } from "@telegram-apps/telegram-ui"
 import { Icon28Close } from "@telegram-apps/telegram-ui/dist/icons/28/close"
+import "./DetailsModal.css"
 
 
 export default function DetailsModal() {

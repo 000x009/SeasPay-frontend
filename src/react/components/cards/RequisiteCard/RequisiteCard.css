@@ -1,0 +1,7 @@
+.requisite__card {
+    border-radius: 15px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    max-height: 65px;
+    padding: 0px 15px;
+    gap: 15px;
+}

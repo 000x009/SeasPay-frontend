@@ -1,0 +1,53 @@
+.details_modal {
+    background-color: var(--tg-theme-bg-color);
+}
+
+.details_modal_close {
+    margin-left: auto;
+}
+
+.details_modal_placeholder {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.details_modal_close {
+    margin-left: auto;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.details_modal_close:hover {
+    cursor: pointer;
+}
+
+.details_modal__main_button {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 12px 16px;
+    background-color: #2990FF;
+    z-index: 0;
+}
+
+.details_modal_content__container {
+    gap: 15px;
+}
+
+.details_modal_divider {
+    color: var(--tg-theme-hint-color);
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.details__button {
+    background-color: #2990FF;
+}

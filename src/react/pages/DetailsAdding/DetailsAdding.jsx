@@ -65,24 +65,6 @@ export function DetailsAdding() {
         }
     }
 
-    // useEffect(() => {
-    //     WebApp.MainButton.setParams({
-    //         text: "Добавить",
-    //     })
-
-    //     if (isCardValid || isCryptoValid) {
-    //         WebApp.MainButton.onClick(detailsType === "card" ? handleMainButtonCard : handleMainButtonCrypto)
-    //         WebApp.MainButton.show()
-    //     } else {
-    //         WebApp.MainButton.hide()
-    //     }
-
-    //     return () => {
-    //         WebApp.MainButton.offClick(detailsType === "card" ? handleMainButtonCard : handleMainButtonCrypto)
-    //         WebApp.MainButton.hide()
-    //     }
-    // }, [detailsType, values])
-
     return (
         <>
           <div className="navigation__container">
