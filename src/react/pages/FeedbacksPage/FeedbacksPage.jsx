@@ -17,7 +17,7 @@ export function FeedbacksPage() {
         hasNextPage,
         isLoading,
     } = useFeedbackList();
-    
+
     const handleMainButtonClick = () => {
         navigate("/feedbacks/post");
     }

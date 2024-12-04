@@ -33,6 +33,8 @@ export function RequisitesList({ items, isFetchingNextPage, total }) {
         )
     }
 
+    console.log(items)
+
     return (
         <div className="requisites_cards_container">
             {total > 0 && items?.map((item) => (

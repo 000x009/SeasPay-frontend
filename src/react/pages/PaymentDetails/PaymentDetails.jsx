@@ -10,8 +10,7 @@ import "./PaymentDetails.css"
 export function PaymentDetails() {
     const navigate = useNavigate()
     const {
-        items,
-        total,
+        data,
         fetchNextPage,
         isFetchingNextPage,
         hasNextPage,
@@ -26,18 +25,20 @@ export function PaymentDetails() {
         return <Progress />
     }
 
+    console.log("data", data)
+
     return (
         <>
-            <PaymentDetailsHeader isRequisitesExist={total !== 0} />
+            <PaymentDetailsHeader isRequisitesExist={data?.total} />
             <InfiniteScroll
                 isLoading={isFetchingNextPage}
                 hasNextPage={hasNextPage}
                 fetchNextPage={fetchNextPage}
             >
                 <RequisitesList
-                    items={items.requisites}
+                    items={data?.requisites ?? []}
                     isFetchingNextPage={isFetchingNextPage}
-                    total={total}
+                    total={data?.total}
                 />
             </InfiniteScroll>
             <MainButton

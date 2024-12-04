@@ -25,7 +25,6 @@ const mainImage = {
 
 
 export function PostFeedback() {
-    const navigate = useNavigate();
     const [form, setForm] = useState({
         rating: 5,
         text: '',
@@ -34,7 +33,7 @@ export function PostFeedback() {
     const [files, setFiles] = useState([]);
     const postFeedback = usePostFeedback();
 
-    const handleMainButtonClick = async() => {
+    const handleMainButtonClick = async () => {
         if (form.text.length === 0) {
             setForm(prev => ({
                 ...prev,

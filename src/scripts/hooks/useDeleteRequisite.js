@@ -1,7 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { RequisiteAPI } from "../backend/api/requisite";
 import { useTelegram } from "./useTelegram";
-import { queryClient } from "@/scripts/shared/api/queryClient";
 
 /**
  * @returns {Object}
@@ -10,28 +9,37 @@ import { queryClient } from "@/scripts/shared/api/queryClient";
  */
 export function useDeleteRequisite() {
     const { WebApp } = useTelegram();
+    const queryClient = useQueryClient();
 
     const mutation = useMutation({
         mutationKey: ['requisite', 'delete'],
-        mutationFn: async (data) => {
-            return await RequisiteAPI.deleteRequisite(data.requisite_id, WebApp.initData);
+        mutationFn: (data) => {
+            return RequisiteAPI.deleteRequisite(data.requisite_id, WebApp.initData);
         },
-        onSuccess: () => {
+        async onSettled() {
             queryClient.invalidateQueries({
-                queryKey: ['requisites'],
-                refetchType: "all"
+                queryKey: ['requisites']
             });
+        },
+        async onSuccess(_, deletedId) {
+            const requisitesData = await queryClient.getQueryData(['requisites'])
+            console.log("requisitesData", requisitesData)
+            if (requisitesData.requisites) {
+                queryClient.setQueryData(
+                    ['requisites'],
+                    (prev) => ({
+                        ...prev,
+                        requisites: prev.requisites.filter(requisite => requisite.id !== deletedId)
+                    })
+                )
+            }
         }
     });
 
-    const handleDeleteRequisite = async (id) => {
-        try {
-            await mutation.mutateAsync({
-                requisite_id: id,
-            });
-        } catch (error) {
-            console.error('Failed to delete requisite:', error);
-        }
+    const handleDeleteRequisite = (id) => {
+        mutation.mutate({
+            requisite_id: id,
+        });
     };
 
     return { handleDeleteRequisite, isLoading: mutation.isPending, isSuccess: mutation.isSuccess };

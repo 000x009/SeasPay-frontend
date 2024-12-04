@@ -1,25 +1,27 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-
-import { RequisiteAPI } from "@/scripts/backend/api/requisite";
-import { queryClient } from "../shared/api/queryClient";
+import { RequisiteAPI } from "../backend/api/requisite";
 
 export function useAddCryptoRequisite() {
     const navigate = useNavigate()
+    const queryClient = useQueryClient();
+
     const addCryptoRequisiteMutation = useMutation({
         mutationKey: ['requisite', 'add-crypto'],
         mutationFn: async (data) => await RequisiteAPI.createCryptoRequisite(data.cryptoRequisiteData, data.initData),
         onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ['requisites']
+            });
             navigate('/payment-details')
-        }
+        },
     })
 
     const handleAddCryptoRequisite = async (cryptoRequisiteData, initData) => {
         queryClient.cancelQueries({
-            queryKey: ['requisite', 'add-crypto']
+            queryKey: ['requisites']
         })
         addCryptoRequisiteMutation.mutate({cryptoRequisiteData, initData})
-        queryClient.invalidateQueries({ queryKey: ['requisites'] })
     }
     const isLoading = addCryptoRequisiteMutation.isPending
 

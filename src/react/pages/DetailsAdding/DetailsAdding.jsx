@@ -46,17 +46,17 @@ export function DetailsAdding() {
         setComment: (e) => setValues(prev => ({...prev, comment: e.target.value}))
     }
 
-    const handleMainButtonCard = () => {
+    const handleMainButtonCard = async () => {
         if (isCardValid) {
-            addCardRequisite.handleAddCardRequisite({
+            await addCardRequisite.handleAddCardRequisite({
                 number: values.cardValue,
                 holder: values.cardHolder
             }, WebApp.initData)
         }
     }
-    const handleMainButtonCrypto = () => {
+    const handleMainButtonCrypto = async () => {
         if (isCryptoValid) {
-            addCryptoRequisite.handleAddCryptoRequisite({
+            await addCryptoRequisite.handleAddCryptoRequisite({
                 wallet_address: values.address,
                 asset: values.coin,
                 network: values.network,
