@@ -1,0 +1,11 @@
+.withdrawal_requisites_empty__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.withdrawal_requisites_placeholder {
+    margin-top: 15px;
+}

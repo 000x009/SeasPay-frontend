@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
 import { useTelegram } from "@/scripts/hooks/useTelegram";
@@ -7,8 +6,13 @@ import { RequisiteListSkeleton } from "../RequisiteListSkeleton/RequisiteListSke
 import { useDeleteRequisite } from "@/scripts/hooks/useDeleteRequisite"
 import "./RequisitesList.css"
 
-export function RequisitesList({ items, isFetchingNextPage, total }) {
-    const navigate = useNavigate();
+export function RequisitesList({
+    items,
+    isFetchingNextPage,
+    total,
+    onRequisiteClick,
+    isReadOnly = false,
+}) {
     const { handleDeleteRequisite } = useDeleteRequisite()
     const { WebApp } = useTelegram()
 
@@ -16,7 +20,7 @@ export function RequisitesList({ items, isFetchingNextPage, total }) {
         await handleDeleteRequisite(id)
         items = items.filter(item => item.id !== id)
     }, [handleDeleteRequisite, items])
-    
+
     const handleDelete = async (id) => {
         WebApp.showPopup(
             {
@@ -41,8 +45,9 @@ export function RequisitesList({ items, isFetchingNextPage, total }) {
                 <RequisiteCard
                     key={item.id}
                     requisite={item}
-                    onClick={() => navigate(`/requisite/${item.id}`)}
+                    onClick={() => onRequisiteClick(item.id)}
                     onDelete={async () => await handleDelete(item.id)}
+                    isReadOnly={isReadOnly}
                 />
             ))}
             {isFetchingNextPage && <RequisiteListSkeleton remaining={total - (items?.length || 0)} />}

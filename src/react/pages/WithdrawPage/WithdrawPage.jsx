@@ -1,8 +1,6 @@
 import { Image, Title } from '@telegram-apps/telegram-ui';
-import { useNavigate } from 'react-router-dom';
 import ThinkingDuckGIF from '@/assets/gif/thinking_duck.gif';
 import PaypalIcon from '@/assets/icons/paypal.svg';
-import ApplePayIcon from '@/assets/icons/apple_pay.svg';
 import { PaymentSystemsSection } from '@/react/sections/PaymentSystemsSection/PaymentSystemsSection';
 
 import './WithdrawPage.css';
@@ -16,8 +14,6 @@ const paymentSystems = [
 ];
 
 export const WithdrawPage = () => {
-    const navigate = useNavigate();
-
     return (
         <div className="withdraw-page__container">
             <div className="withdraw-page__header">

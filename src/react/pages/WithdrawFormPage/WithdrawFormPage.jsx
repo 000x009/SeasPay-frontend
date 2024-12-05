@@ -1,32 +1,15 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { MainButton } from '@vkruglikov/react-telegram-web-app';
-import { Subheadline, Select } from '@telegram-apps/telegram-ui';
+import { Subheadline } from '@telegram-apps/telegram-ui';
 import { FileSection } from '@/react/sections/FileSection/FileSection';
 import { Info } from '@/react/components/ui/Info/Info';
 import WarningIcon from '@/assets/icons/warning.svg?react';
+import { useCreateWithdrawOrder } from '@/scripts/hooks/useCreateWithdrawOrder';
 
 import './WithdrawFormPage.css';
 
-const userDetails = [
-    {
-        id: 1,
-        type: "card",
-        details: {
-            number: "4141 4141 4141 4141",
-            cardHolder: "John Doe"
-        }
-    },
-    {
-        id: 2,
-        type: "crypto",
-        details: {
-            address: "0x0000000000000000000000000000000000000000",
-            network: "Ethereum",
-            coin: "ETH"
-        }
-    },
-];
 
 const infoBody = [
     "1. Первым делом вы должны дать наши реквизиты человеку, который хочет отправить вам денежные средства. При переводе, ему нужно будет отправить вам скриншот чека о нем, который вы в последствие используете при подачи заявки на вывод\n\n",
@@ -34,7 +17,19 @@ const infoBody = [
 ];
 
 export function WithdrawFormPage() {
-    const [files, setFiles] = useState([]);
+    const [file, setFile] = useState(null);
+    const location = useLocation();
+    const locationState = location.state;
+    const createWithdrawOrder = useCreateWithdrawOrder();
+
+    const handleMainButtonClick = async () => {
+        console.log("file", file)
+        if (!file) {
+            return;
+        }
+        console.log("send")
+        await createWithdrawOrder.handleCreateWithdrawOrder(locationState.pickedRequisiteId, file[0])
+    }
 
     return (
         <div className="withdraw-form-page__container">
@@ -50,31 +45,18 @@ export function WithdrawFormPage() {
                     />
                 </div>
             </div>
-            <div className='withdraw-form__container'>
-                <Select
-                    header='Ваши реквизиты'
-                    placeholder='Выберите ваши реквизиты'
-                    className='withdraw-form__select'
-                >
-                    {userDetails.map((detail) => (
-                        <option
-                            key={detail.id}
-                            value={detail.id}
-                            className='withdraw-form__select-item'
-                        >
-                            {detail.type}
-                        </option>
-                    ))}
-                </Select>
-            </div>
             <div className='withdraw-form__files'>
                 <FileSection
-                    files={files}
-                    setFiles={setFiles}
-                    multiple={true}
+                    files={file}
+                    setFiles={setFile}
+                    multiple={false}
                 />
             </div>
-            <MainButton text='Подать заявку' />
+            <MainButton
+                text='Подать заявку'
+                onClick={handleMainButtonClick}
+                progress={createWithdrawOrder.isLoading}
+            />
         </div>
     );
 }
