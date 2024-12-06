@@ -19,6 +19,10 @@ export function useFeedbackList() {
             const nextPage = lastPage.length ? allPages.length + 1 : undefined;
             return nextPage;
         },
+        select: (result) => ({
+            items: result.pages.flatMap(page => page.feedbacks),
+            total: result.pages[0]?.total || 0
+        }),
     })
 
     return {

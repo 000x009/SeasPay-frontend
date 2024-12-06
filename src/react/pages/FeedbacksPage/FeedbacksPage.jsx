@@ -31,7 +31,8 @@ export function FeedbacksPage() {
                 fetchNextPage={() => hasNextPage && fetchNextPage()}
             >
                 <FeedbackCards
-                    feedbacks={data?.pages?.flat() ?? []}
+                    feedbacks={data?.items ?? []}
+                    total={data?.total}
                     isFetchingNextPage={isFetchingNextPage}
                     isLoading={isLoading}
                 />
