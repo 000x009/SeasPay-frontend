@@ -1,5 +1,7 @@
-import { Image, Title } from '@telegram-apps/telegram-ui';
-import ThinkingDuckGIF from '@/assets/gif/thinking_duck.gif';
+import { Title } from '@telegram-apps/telegram-ui';
+import Lottie from "lottie-react"
+
+import ThinkingDuckAnimation from '@/assets/animations/thinking-duck.json';
 import PaypalIcon from '@/assets/icons/paypal.svg';
 import { PaymentSystemsSection } from '@/react/sections/PaymentSystemsSection/PaymentSystemsSection';
 
@@ -17,13 +19,13 @@ export const WithdrawPage = () => {
     return (
         <div className="withdraw-page__container">
             <div className="withdraw-page__header">
-                <Image
-                    src={ThinkingDuckGIF}
-                    className="withdraw-page__image"
+                <Lottie
+                    animationData={ThinkingDuckAnimation}
+                    loop={true}
+                    autoplay={true}
                     style={{
                         width: "200px",
                         height: "200px",
-                        visibility: "hidden",
                     }}
                 />
                 <Title level='3' weight='1' className="withdraw-page__title">

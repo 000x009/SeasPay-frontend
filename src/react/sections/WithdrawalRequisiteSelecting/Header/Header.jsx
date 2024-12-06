@@ -1,7 +1,8 @@
-import { Placeholder, Image } from "@telegram-apps/telegram-ui"
+import { Placeholder } from "@telegram-apps/telegram-ui"
+import Lottie from "lottie-react"
 
-import DuckNotFound from "@/assets/gif/duck_not_found.gif"
-import CardGIF from "@/assets/gif/card.gif"
+import DuckNotFound from "@/assets/animations/duck-not-found.json"
+import CardAnimation from "@/assets/animations/credit-card.json"
 
 export function WithdrawalRequisiteSelectingHeader({ isRequisitesExist }) {
     return (
@@ -12,18 +13,17 @@ export function WithdrawalRequisiteSelectingHeader({ isRequisitesExist }) {
                     header="Выберите реквизиты для вывода средств"
                     className='withdrawal_requisites_placeholder'
                 />
-                    <Image
-                        src={CardGIF}
-                        className='details_image'
+                    <Lottie
+                        animationData={CardAnimation}
                         style={{
-                        width: "150px",
-                        height: "150px",
-                    }}
-                />
+                            width: "150px",
+                            height: "150px",
+                        }}
+                    />
                 </div>) : (
                     <div className="introducing_content__container">
-                        <Image
-                            src={DuckNotFound}
+                        <Lottie
+                            animationData={DuckNotFound}
                             className='details_empty_image'
                             style={{
                                 width: "170px",

@@ -1,5 +1,5 @@
-import { useSearchParams, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useSearchParams } from "react-router-dom"
+import { useState } from "react"
 import { Headline } from "@telegram-apps/telegram-ui"
 import { MainButton } from "@vkruglikov/react-telegram-web-app"
 

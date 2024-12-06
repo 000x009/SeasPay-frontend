@@ -1,10 +1,12 @@
-import PaymentDetailsHeader from "@/react/sections/PaymentDetailsHeader/PaymentDetailsHeader"
 import { useNavigate } from "react-router-dom"
+
+import { MainButton } from "@vkruglikov/react-telegram-web-app"
+
 import { useRequisiteList } from "@/scripts/hooks/useRequisiteList"
 import { Progress } from "@/react/components/ui/Progress/Progress"
 import { InfiniteScroll } from "@/react/sections/InfiniteScroll/InfiniteScroll"
-import { MainButton } from "@vkruglikov/react-telegram-web-app"
 import { RequisitesList } from "@/react/sections/RequisitesList/RequisitesList"
+import { PaymentDetailsHeader } from "@/react/sections/PaymentDetailsHeader/PaymentDetailsHeader"
 import "./PaymentDetails.css"
 
 export function PaymentDetails() {
@@ -24,8 +26,6 @@ export function PaymentDetails() {
     if (isLoading) {
         return <Progress />
     }
-
-    console.log("data", data)
 
     return (
         <>

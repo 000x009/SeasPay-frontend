@@ -1,12 +1,14 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Placeholder, Image } from "@telegram-apps/telegram-ui";
-import AngryDuck from "@/assets/gif/angry_duck.gif";
-import VietnamDuck from "@/assets/gif/vietnam_duck.gif";
-import LovelyDuck from "@/assets/gif/lovely_duck.gif";
-import ThankfulDuck from "@/assets/gif/thankful_duck.gif";
-import DepressedDuck from "@/assets/gif/depressed_duck.gif";
+import { Placeholder } from "@telegram-apps/telegram-ui";
+import Lottie from "lottie-react"
+
+import AngryDuck from "@/assets/animations/angry-duck.json"
+import FlashbackDuck from "@/assets/animations/duck-flashback.json"
+import LovelyDuck from "@/assets/animations/lovely-duck.json"
+import RespectDuck from "@/assets/animations/respect-duck.json"
+import DepressedDuck from "@/assets/animations/depressed-duck.json"
+
 import { usePostFeedback } from "@/scripts/hooks/usePostFeedback";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 
@@ -16,10 +18,10 @@ import "./PostFeedback.css";
 
 
 const mainImage = {
-    1: VietnamDuck,
+    1: FlashbackDuck,
     2: AngryDuck,
     3: DepressedDuck,
-    4: ThankfulDuck,
+    4: RespectDuck,
     5: LovelyDuck,
 }
 
@@ -51,9 +53,10 @@ export function PostFeedback() {
                     header="Оставьте самый честный отзыв о нашем сервисе!"
                     className='post_feedback__placeholder'
                 />
-                <Image
-                    src={mainImage[form.rating]}
-                    className='post_feedback__image'
+                <Lottie
+                    animationData={mainImage[form.rating]}
+                    loop={true}
+                    autoplay={true}
                     style={{
                         width: "150px",
                         height: "150px",

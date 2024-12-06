@@ -1,8 +1,9 @@
-import { Image, Title } from '@telegram-apps/telegram-ui';
-import { useNavigate } from 'react-router-dom';
-import ThinkingDuckGIF from '@/assets/gif/thinking_duck.gif';
+import { Title } from '@telegram-apps/telegram-ui';
+
+import Lottie from "lottie-react"
+
+import ThinkingDuckAnimation from '@/assets/animations/thinking-duck.json';
 import PaypalIcon from '@/assets/icons/paypal.svg';
-import ApplePayIcon from '@/assets/icons/apple_pay.svg';
 import { PaymentSystemsSection } from '@/react/sections/PaymentSystemsSection/PaymentSystemsSection';
 
 import './TransferPage.css';
@@ -16,18 +17,16 @@ const paymentSystems = [
 ];
 
 export const TransferPage = () => {
-    const navigate = useNavigate();
-
     return (
         <div className="transfer-page__container">
             <div className="transfer-page__header">
-                <Image
-                    src={ThinkingDuckGIF}
-                    className="transfer-page__image"
+                <Lottie
+                    animationData={ThinkingDuckAnimation}
+                    loop={true}
+                    autoplay={true}
                     style={{
                         width: "200px",
                         height: "200px",
-                        visibility: "hidden",
                     }}
                 />
                 <Title level='3' weight='1' className="transfer-page__title">
