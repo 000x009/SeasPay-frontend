@@ -10,9 +10,15 @@
     padding-top: 0px;
 }
 
-.transaction_card_icon {
+.transaction_card_avatar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFFFF;
+    align-self: center;
+    background-color: var(--tg-theme-button-color);
+}
+
+.transaction_card_icon {
+    width: 25px;
+    height: 25px;
 }

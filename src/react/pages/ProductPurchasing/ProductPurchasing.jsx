@@ -11,12 +11,8 @@ import { useProduct } from "@/scripts/hooks/useProduct";
 import { Progress } from "@/react/components/ui/Progress/Progress";
 import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
 import { parseInputFields } from "@/scripts/helpers/parseInputFields";
+import { availablePaymentMethods } from "@/constants/payment";
 import "./ProductPurchasing.css";
-
-const selectSectionItems = [
-    { id: 1, name: "Прямой перевод на карту", description: "0% комиссии за перевод", defaultChecked: true },
-    { id: 2, name: "Crypto Bot", description: "+3% комиссии за перевод", defaultChecked: false },
-];
 
 export function ProductPurchasing() {
     const navigate = useNavigate();
@@ -93,7 +89,7 @@ export function ProductPurchasing() {
             <div className="product-purchasing__select-section">
                 <SelectSection
                     header="Способ оплаты"
-                    items={selectSectionItems}
+                    items={availablePaymentMethods}
                     onChangeForm={handleChangeSelectForm}
                 />
             </div>

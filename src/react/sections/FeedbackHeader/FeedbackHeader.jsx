@@ -18,15 +18,6 @@ export function FeedbackHeader() {
                     height: "150px",
                 }}
             />
-            <div className="feedbacks_description_container">
-                <Caption
-                    weight="3"
-                    level="3"
-                    className='feedbacks_description_placeholder'
-                >
-                    При нажатии на имя в правом верхнем углу, вы можете перейти в профиль пользователя, который оставил отзыв
-                </Caption>
-            </div>
         </div>
     );
 }

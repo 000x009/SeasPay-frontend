@@ -1,0 +1,35 @@
+.product_application {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.product_application__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.product-application__input {
+    width: 400px;
+}
+
+.product_application__select-section {
+    padding-left: 10px;
+}
+
+.password-input-eye-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.product-application__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 15px;
+}

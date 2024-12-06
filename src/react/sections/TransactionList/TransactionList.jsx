@@ -9,9 +9,11 @@ export function TransactionList({transactions, isFetchingNextPage, isLoading, to
 
     return (
         <>
-            <div className="transaction_section__caption">
-                <Caption level={3} plain className="transaction_section__headline">Транзакции</Caption>
-            </div>
+            {total > 0 && (
+                <div className="transaction_section__caption">
+                    <Caption level={3} plain className="transaction_section__headline">Транзакции</Caption>
+                </div>
+            )}
             <div className="transaction_cards_container">
                 {transactions.map((transaction) => (
                     <TransactionCard

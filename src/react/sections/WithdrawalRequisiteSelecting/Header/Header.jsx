@@ -21,7 +21,7 @@ export function WithdrawalRequisiteSelectingHeader({ isRequisitesExist }) {
                     }}
                 />
                 </div>) : (
-                    <div className="withdrawal_requisites_empty__container">
+                    <div className="introducing_content__container">
                         <Image
                             src={DuckNotFound}
                             className='details_empty_image'

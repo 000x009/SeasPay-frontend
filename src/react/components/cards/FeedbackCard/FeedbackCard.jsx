@@ -2,14 +2,11 @@ import { Caption, Tappable } from "@telegram-apps/telegram-ui";
 import { Rating } from "@mui/material";
 
 import { formatDate } from "@/scripts/helpers/formatDate";
-import {useTelegram} from "@/scripts/hooks/useTelegram";
 import { FeedbackSkeleton } from "../FeedbackSkeleton/FeedbackSkeleton";
 
 import "./FeedbackCard.css";
 
 export function FeedbackCard({feedback, loading}) {
-    const {WebApp} = useTelegram();
-
     return (
         <Tappable className="feedback_card__container">
             {loading ? <FeedbackSkeleton /> : (
@@ -22,9 +19,6 @@ export function FeedbackCard({feedback, loading}) {
                             <Caption weight="3" level="3" className="feedback_card__date">
                                 {formatDate(feedback.created_at)}
                             </Caption>
-                            <Caption weight="3" level="3" className="feedback_card__user" onClick={() => {
-                                WebApp.openTelegramLink(`tg://user?id=${feedback.user_id}`);
-                            }}>@{feedback.username}</Caption>
                         </div>
                     </div>
                     <div className="feedback_card_text__container">

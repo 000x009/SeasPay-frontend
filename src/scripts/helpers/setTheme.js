@@ -4,8 +4,6 @@ import { darkCustomTheme } from "@/constants/theme";
 export function setTheme() {
   const { WebApp } = useTelegram();
 
-  WebApp.themeParams.button_color = "#2990FF";
-
   if (WebApp.colorScheme === 'dark') {
     WebApp.setBackgroundColor(darkCustomTheme.bgColor);
     WebApp.setHeaderColor(darkCustomTheme.bgColor);

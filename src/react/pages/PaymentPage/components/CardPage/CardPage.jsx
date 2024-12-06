@@ -11,6 +11,8 @@ import { useCreateTransferOrder } from "@/scripts/hooks/useCreateTransferOrder";
 import { useCommission } from "@/scripts/hooks/useCommission";
 import { Progress } from "@/react/components/ui/Progress/Progress";
 import { currencyCommissionConvertor } from "@/scripts/helpers/currencyCommissionConvertor";
+import { useProductApplication } from "@/scripts/hooks/useProductApplication";
+import { useCreateDigitalProductOrder } from "@/scripts/hooks/useCreateDigitalProduct";
 import "./CardPage.css";
 
 
@@ -19,6 +21,8 @@ export function CardPage({ locationState }) {
     const [convertedAmount, setConvertedAmount] = useState(null);
     const createProductOrder = useCreatePlatformProductOrder();
     const createTransferOrder = useCreateTransferOrder();
+    const createDigitalProductOrder = useCreateDigitalProductOrder();
+    const productApplication = useProductApplication(locationState.data.productApplicationId);
     const { commission, isLoading } = useCommission();
 
     const handleMainButtonClick = async () => {
@@ -26,9 +30,15 @@ export function CardPage({ locationState }) {
             return;
         }
         if (locationState.payment_type === "product") {
-            await createProductOrder.handleCreatePlatformProductOrder(locationState.data.form, file[0], locationState.productId);
+            await createProductOrder.handleCreatePlatformProductOrder(locationState.data.form, file[0], locationState.data.productId);
         } else if (locationState.payment_type === "transfer") {
             await createTransferOrder.handleCreateTransferOrder(locationState.data.form, file[0]);
+        } else if (locationState.payment_type === "product-application") {
+            await createDigitalProductOrder.handleCreateDigitalProductOrder(
+                locationState.data.form,
+                file[0],
+                productApplication.application.id
+            );
         }
     };
 
@@ -70,7 +80,7 @@ export function CardPage({ locationState }) {
             <MainButton
                 text="Готово"
                 onClick={handleMainButtonClick}
-                progress={createProductOrder.isLoading || createTransferOrder.isLoading}
+                progress={createProductOrder.isLoading || createTransferOrder.isLoading || createDigitalProductOrder.isLoading}
             />
         </div>
     );

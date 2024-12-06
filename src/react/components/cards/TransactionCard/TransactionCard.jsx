@@ -11,8 +11,8 @@ export function TransactionCard({ transaction, ...props }) {
         <Cell
             className="transaction_card"
             before={
-                <Avatar className="transaction_card_icon">
-                    <TransactionIcon/>
+                <Avatar className="transaction_card_avatar">
+                    <TransactionIcon className="transaction_card_icon"/>
                 </Avatar>
             }
             description={parseDate(transaction.created_at)}

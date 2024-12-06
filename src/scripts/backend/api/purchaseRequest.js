@@ -6,11 +6,14 @@ export class PurchaseRequestAPI {
     static baseEndpoint = '/purchase-request/'
 
     static async sendRequest(data, initData) {
-        console.log("Init data", initData)
         return axios.post(
             `${backendBaseURL}${this.baseEndpoint}`,
             data,
             { headers: { "Authorization": `${initData}` } }
         )
+    }
+
+    static async getRequest(id, initData) {
+        return axios.get(`${backendBaseURL}${this.baseEndpoint}${id}`, { headers: { "Authorization": `${initData}` } })
     }
 }
