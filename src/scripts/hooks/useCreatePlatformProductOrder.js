@@ -32,7 +32,11 @@ export function useCreatePlatformProductOrder() {
             }
         },
         onSuccess: () => {
-            navigate("/");
+            navigate("/success", {
+                state: {
+                    successType: "PURCHASE_REQUEST"
+                }
+            });
         }
     });
 

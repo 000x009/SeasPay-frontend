@@ -32,10 +32,14 @@ export function useCreateTransferOrder() {
                 )
             }
         },
-        onSuccess: async () => {
-            navigate("/");
-            await queryClient.invalidateQueries({
-                    queryKey: ['orders']
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ['orders']
+            });
+            navigate("/success", {
+                state: {
+                    successType: "TRANSFER"
+                }
             });
         }
     });

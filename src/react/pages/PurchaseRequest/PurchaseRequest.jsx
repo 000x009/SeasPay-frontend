@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { Image, Placeholder, Input } from "@telegram-apps/telegram-ui";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
@@ -13,19 +12,12 @@ export const PurchaseRequest = () => {
     const [error, setError] = useState(false);
     const sendPurchaseRequest = useSendPurchaseRequest();
     const { WebApp } = useTelegram();
-    const navigate = useNavigate();
 
     const handleSubmit = () => {
         const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
         
         if (link !== "" && urlRegex.test(link)) {
-            sendPurchaseRequest.handleSendRequest(
-                link,
-                WebApp.initData,
-                () => {
-                    navigate("/");
-                }
-            );
+            sendPurchaseRequest.handleSendRequest(link, WebApp.initData);
         } else {
             setError(true);
         }

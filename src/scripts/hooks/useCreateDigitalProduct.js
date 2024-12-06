@@ -33,7 +33,11 @@ export function useCreateDigitalProductOrder() {
             }
         },
         onSuccess: () => {
-            navigate("/");
+            navigate("/success", {
+                state: {
+                    successType: "PRODUCT_APPLICATION"
+                }
+            });
         }
     });
 

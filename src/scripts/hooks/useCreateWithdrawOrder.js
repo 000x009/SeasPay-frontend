@@ -32,7 +32,11 @@ export function useCreateWithdrawOrder() {
             queryClient.invalidateQueries({
                 queryKey: ['orders']
             })
-            navigate('/')
+            navigate('/success', {
+                state: {
+                    successType: "WITHDRAWAL"
+                }
+            })
         }
     })
 

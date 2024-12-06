@@ -1,0 +1,16 @@
+.success_page_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.success_page_placeholder {
+    text-align: center;
+    font-size: 20px;
+}
+
+.success_page_image {
+    visibility: hidden;
+}
+

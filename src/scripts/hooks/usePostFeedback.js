@@ -1,8 +1,8 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+
 import { FeedbackAPI } from "../backend/api/feedback";
 import { useTelegram } from "./useTelegram";
-import { queryClient } from "@/scripts/shared/api/queryClient";
 import { CloudAPI } from "../backend/api/cloud";
 import { AWSCloudAPI } from "../backend/api/aws";
 
@@ -14,6 +14,7 @@ import { AWSCloudAPI } from "../backend/api/aws";
 export function usePostFeedback() {
     const { WebApp } = useTelegram();
     const navigate = useNavigate();
+    const queryClient = useQueryClient();
 
     const mutation = useMutation({
         mutationKey: ['feedback', 'post'],
@@ -40,7 +41,14 @@ export function usePostFeedback() {
             );
         },
         onSuccess: () => {
-            navigate("/feedbacks");
+            queryClient.invalidateQueries({
+                queryKey: ['feedbacks']
+            });
+            navigate("/success", {
+                state: {
+                    successType: "FEEDBACK"
+                }
+            });
         }
     });
 
@@ -51,9 +59,6 @@ export function usePostFeedback() {
         mutation.mutate({
             attachments: attachments,
             formData: formData,
-        });
-        queryClient.invalidateQueries({
-            queryKey: ['feedbacks']
         });
     };
 

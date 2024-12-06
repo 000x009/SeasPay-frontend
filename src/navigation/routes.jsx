@@ -18,6 +18,7 @@ import { TransactionDetails } from '@/react/pages/TransactionDetails/Transaction
 import { RequisiteTypeSelecting } from '@/react/pages/RequisiteTypeSelecting/RequisiteTypeSelecting';
 import { WithdrawalRequisiteSelecting } from '@/react/pages/WithdrawalRequisiteSelecting/WithdrawalRequisiteSelecting';
 import { ProductApplication } from '@/react/pages/ProductApplication/ProductApplication';
+import { SuccessPage } from '@/react/pages/SuccessPage/SuccessPage';
 
 /**
  * @typedef {object} Route
@@ -52,4 +53,5 @@ export const routes = [
     {path: '/transaction/:id', Component: TransactionDetails},
     {path: '/payment-details/choose', Component: RequisiteTypeSelecting},
     {path: '/product-application/:id', Component: ProductApplication},
+    {path: '/success', Component: SuccessPage},
 ];
