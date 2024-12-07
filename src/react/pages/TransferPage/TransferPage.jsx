@@ -25,8 +25,8 @@ export const TransferPage = () => {
                     loop={true}
                     autoplay={true}
                     style={{
-                        width: "200px",
-                        height: "200px",
+                        width: "150px",
+                        height: "150px",
                     }}
                 />
                 <Title level='3' weight='1' className="transfer-page__title">

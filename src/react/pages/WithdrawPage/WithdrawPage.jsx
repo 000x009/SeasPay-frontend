@@ -24,8 +24,8 @@ export const WithdrawPage = () => {
                     loop={true}
                     autoplay={true}
                     style={{
-                        width: "200px",
-                        height: "200px",
+                        width: "150px",
+                        height: "150px",
                     }}
                 />
                 <Title level='3' weight='1' className="withdraw-page__title">

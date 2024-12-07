@@ -13,7 +13,7 @@
     padding: 15px;
     border-radius: 20px;
     width: 150px;
-    height: 150px;
+    height: 170px;
     cursor: pointer;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -28,8 +28,6 @@
 
 .product-card__title {
     text-align: center;
-    justify-content: center;
-    align-items: center;
     display: -webkit-box;
     line-clamp: 1;
     -webkit-line-clamp: 1;

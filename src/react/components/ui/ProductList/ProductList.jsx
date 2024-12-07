@@ -11,9 +11,7 @@ export function ProductList({ products }) {
             <div className="products-grid">
                 {products.map((product) => (
                     <ProductCard
-                        key={product.id}
-                        title={product.name}
-                        image={product.image_url}
+                        product={product}
                         onClick={() => {
                             navigate(`/products/purchase/${product.id}`);
                         }}
