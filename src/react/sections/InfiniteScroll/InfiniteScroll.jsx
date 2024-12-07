@@ -13,7 +13,7 @@ export function InfiniteScroll({
     useEffect(() => {
         function handleIntersection(entries) {
             entries.forEach((entry) => {
-                if (entry.isIntersecting && (!isFetchingNextPage || !isLoading)) {
+                if (entry.isIntersecting && (!isFetchingNextPage && !isLoading)) {
                     fetchNextPage();
                 }
             })
@@ -31,7 +31,9 @@ export function InfiniteScroll({
         }
 
         return () => {
-            observer.disconnect();
+            if (loader.current) {
+                observer.disconnect();
+            }
         }
     }, [isLoading, isFetchingNextPage, fetchNextPage]);
 

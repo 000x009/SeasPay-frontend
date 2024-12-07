@@ -12,12 +12,9 @@ export class OrderAPI {
      * @param {string} initData
      * @returns {Promise<import('axios').AxiosResponse>}
      */
-    static async list(limit, offset, initData) {;
+    static async list(data, initData) {;
         return axios.get(`${backendBaseURL}${this.baseEndpoint}`, {
-            params: {
-                limit,
-                offset,
-            },
+            params: data,
             headers: {
                 "Authorization": `${initData}`,
                 "Content-Type": "application/json"

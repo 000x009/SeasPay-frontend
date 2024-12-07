@@ -75,11 +75,11 @@ export function DetailsForm({ type, values, handlers }) {
             </div>
             <div className="form__inputs">
                 {formInputs.map((input, index) => (
-                <Input
-                    key={index}
-                    className="input"
-                    {...input}
-                />
+                    <Input
+                        key={index}
+                        className="input"
+                        {...input}
+                    />
                 ))}
                 {isComment && <div className="comment-container">
                     <Input

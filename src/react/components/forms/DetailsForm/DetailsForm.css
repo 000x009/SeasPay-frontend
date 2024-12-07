@@ -1,25 +1,16 @@
 .form__container {
     margin: 20px;
-    background-color: #0f0f0f;
 }
 
-.form__container .input {
-    background-color: #0f0f0f !important;
-}
 
 .form__section {
     display: flex;
     flex-direction: column;
-    background-color: #0f0f0f;
     gap: 10px;
 }
 
 .form__selects .select {
-    background-color: #0f0f0f !important;
-}
-
-.form__inputs .input {
-    background-color: #0f0f0f !important;
+    background-color: var(--tg-theme-bg-color);
 }
 
 .add-comment {

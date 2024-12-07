@@ -28,23 +28,15 @@ export const CRYPTO_DETAILS = {
         {
             options: [
                 {
-                    value: "ETH",
-                    label: "ETH"
+                    value: "TON",
+                    label: "TON"
                 },
-                {
-                    value: "BSC",
-                    label: "BSC"
-                }
             ],
             header: "Сеть",
             placeholder: "Выберите сеть"
         },
         {
             options: [
-                {
-                    value: "ETH",
-                    label: "ETH"
-                },
                 {
                     value: "USDT",
                     label: "USDT"

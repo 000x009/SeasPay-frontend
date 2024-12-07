@@ -1,6 +1,7 @@
 import { MainHeader } from '@/react/components/ui/MainHeader/MainHeader';
 import { MainCellList } from '@/react/components/ui/MainCellList/MainCellList';
-import { TransactionSection } from '@/react/sections/TransactionSection/TransactionSection';
+import { TransactionList } from '@/react/sections/TransactionList/TransactionList';
+import { InfiniteScroll } from '@/react/sections/InfiniteScroll/InfiniteScroll';
 import { useTransactions } from '@/scripts/hooks/useTransactions';
 import { Progress } from '@/react/components/ui/Progress/Progress';
 import './MainPage.css';
@@ -11,11 +12,11 @@ import './MainPage.css';
  */
 export function MainPage() {
     const {
+        data,
         isLoading,
         isFetchingNextPage,
         fetchNextPage,
         hasNextPage,
-        items,
     } = useTransactions();
 
     if (isLoading) {
@@ -26,13 +27,18 @@ export function MainPage() {
         <>
             <MainHeader/>
             <MainCellList/>
-            <TransactionSection
+            <InfiniteScroll
                 isLoading={isLoading}
                 isFetchingNextPage={isFetchingNextPage}
-                fetchNextPage={fetchNextPage}
-                hasNextPage={hasNextPage}
-                items={items[0]}
-            />
+                fetchNextPage={() => hasNextPage && fetchNextPage()}
+            >
+                <TransactionList
+                    transactions={data?.items ?? []}
+                    total={data?.total}
+                    isFetchingNextPage={isFetchingNextPage}
+                    isLoading={isLoading}
+                />
+            </InfiniteScroll>
         </>
     )
 }

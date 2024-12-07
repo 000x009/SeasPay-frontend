@@ -18,8 +18,8 @@ export function TransactionSection({
                     fetchNextPage={() => hasNextPage && fetchNextPage()}
                 >
                     <TransactionList
-                        transactions={items.orders}
-                        total={items.total}
+                        transactions={items?.items ?? []}
+                        total={items?.total}
                         isFetchingNextPage={isFetchingNextPage}
                         isLoading={isLoading}
                     />

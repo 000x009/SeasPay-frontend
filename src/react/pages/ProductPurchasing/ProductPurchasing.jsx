@@ -6,10 +6,12 @@ import { Breadcrumbs } from "@telegram-apps/telegram-ui";
 
 import { Info } from "@/react/components/ui/Info/Info";
 import WarningIcon from "@/assets/icons/warning.svg?react";
+import WarningIconBlack from "@/assets/icons/black-instruction.svg?react";
 import SelectSection from "@/react/sections/SelectSection/SelectSection";
 import { useProduct } from "@/scripts/hooks/useProduct";
 import { Progress } from "@/react/components/ui/Progress/Progress";
 import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
+import { useTelegram } from "@/scripts/hooks/useTelegram";
 import { parseInputFields } from "@/scripts/helpers/parseInputFields";
 import { availablePaymentMethods } from "@/constants/payment";
 import "./ProductPurchasing.css";
@@ -18,6 +20,8 @@ export function ProductPurchasing() {
     const navigate = useNavigate();
     const params = useParams();
     const { product, platform, isLoading } = useProduct(params.id);
+    const { theme } = useTelegram();
+    console.log(theme)
 
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(1);
     const [formData, setFormData] = useState({});
@@ -74,7 +78,7 @@ export function ProductPurchasing() {
             </div>
             <div className="product-purchasing__info">
                 <Info
-                    icon={<WarningIcon />}
+                    icon={theme === "light" ? <WarningIconBlack /> : <WarningIcon />}
                     header="Инструкция"
                     body={product.instruction}
                 />

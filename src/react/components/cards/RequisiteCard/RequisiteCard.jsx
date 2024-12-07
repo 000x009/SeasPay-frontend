@@ -1,4 +1,4 @@
-import { Cell, Avatar, IconButton } from "@telegram-apps/telegram-ui"
+import { Cell, IconButton } from "@telegram-apps/telegram-ui"
 
 import BinIcon from "@/assets/icons/bin.svg?react"
 import ChevronForwardIcon from "@/assets/icons/chevron_forward.svg?react"
@@ -18,9 +18,17 @@ export function RequisiteCard({
             className="requisite__card"
             description={config.getDescription(requisite)}
             before={
-                <Avatar>
+                <div
+                    style={{
+                        width: "35px",
+                        height: "35px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                >
                     <config.icon />
-                </Avatar>
+                </div>
             }
             after={
                 <IconButton onClick={onDelete} className="requisite__card__delete">
