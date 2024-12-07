@@ -1,0 +1,20 @@
+.file_input_button {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.file_input_button__button {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.custom-file-upload__button {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}

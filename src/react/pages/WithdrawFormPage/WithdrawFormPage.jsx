@@ -50,6 +50,7 @@ export function WithdrawFormPage() {
                     files={file}
                     setFiles={setFile}
                     multiple={false}
+                    inputType="button"
                 />
             </div>
             <MainButton

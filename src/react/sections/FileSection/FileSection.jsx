@@ -2,10 +2,16 @@ import { Cell, IconButton, Image } from "@telegram-apps/telegram-ui";
 
 import CloseIcon from "@/assets/icons/close.svg?react"
 import { FileInput } from "@/react/components/inputs/FileInput/FileInput";
+import { FileInputButton } from "@/react/components/inputs/FileInputButton/FileInputButton";
 
 import "./FileSection.css";
 
-export function FileSection({files, setFiles, multiple = false}) {
+export function FileSection({
+    files,
+    setFiles,
+    multiple = false,
+    inputType = "text"
+}) {
     const handleFileRemove = (fileToRemove) => {
         if (multiple) {
             const updatedFiles = files.filter((file) => file !== fileToRemove);
@@ -54,13 +60,19 @@ export function FileSection({files, setFiles, multiple = false}) {
                 ))}
             </div>
             <div className="feedback_form_file_attachment__container">
-                <FileInput
-                    label="Прикрепить фото"
-                    onChange={(event) => handleSetFiles(event.target.files)}
-                    className="feedback_form__file_input"
-                    multiple={multiple}
-                    accept="image/jpeg, image/png"
-                />
+                {inputType === "button" ? <FileInputButton
+                        label="Прикрепить фото"
+                        onChange={(event) => handleSetFiles(event.target.files)}
+                        className="feedback_form__file_input_button"
+                        multiple={multiple}
+                        accept="image/jpeg, image/png"
+                    /> : <FileInput
+                        onChange={(event) => handleSetFiles(event.target.files)}
+                        className="feedback_form__file_input"
+                        multiple={multiple}
+                        label="Прикрепить фото"
+                        accept="image/jpeg, image/png"
+                    />}
             </div>
         </div>
     );
