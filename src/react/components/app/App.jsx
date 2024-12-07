@@ -1,45 +1,13 @@
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { useEffect } from 'react';
-import {
-  Navigate,
-  Route,
-  BrowserRouter,
-  Routes,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
 
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
-import { routes } from '@/navigation/routes.jsx';
 import { useTelegram } from '@/scripts/hooks/useTelegram';
+import { AppRouter } from './AppRouter';
 import { UserAPI } from '@/scripts/backend/api/user';
 import { setTheme } from '@/scripts/helpers/setTheme';
 
-function BackButtonManipulator() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { WebApp } = useTelegram();
-
-  useEffect(() => {
-    function onClick() {
-      navigate(-1);
-    }
-    WebApp.BackButton.onClick(onClick);
-
-    return () => WebApp.BackButton.offClick(onClick);
-  }, [navigate]);
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      WebApp.BackButton.isVisible && WebApp.BackButton.hide();
-    } else {
-      !WebApp.BackButton.isVisible && WebApp.BackButton.show();
-    }
-  }, [location]);
-
-  return null;
-}
 
 /**
  * @return {JSX.Element}
@@ -57,7 +25,6 @@ export function App() {
 
   useEffect(() => {
     setTheme();
-    console.log("WebApp", WebApp.initData)
   }, [])
 
   return (
@@ -66,13 +33,7 @@ export function App() {
         appearance={WebApp.colorScheme}
         platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
       >
-        <BrowserRouter>
-          <BackButtonManipulator/>
-          <Routes>
-            {routes.map((route) => <Route key={route.path} {...route} />)}
-            <Route path='*' element={<Navigate to='/'/>}/>
-          </Routes>
-        </BrowserRouter>
+        <AppRouter/>
       </AppRoot>
     </QueryClientProvider>
   );

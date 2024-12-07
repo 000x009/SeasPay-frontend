@@ -13,7 +13,7 @@ export function useAddCryptoRequisite() {
             queryClient.invalidateQueries({
                 queryKey: ['requisites']
             });
-            navigate('/payment-details')
+            navigate('/payment-details', {replace: true, state: {from: "adding"}})
         },
     })
 
