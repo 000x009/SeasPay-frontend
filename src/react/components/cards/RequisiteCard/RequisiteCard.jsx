@@ -31,7 +31,7 @@ export function RequisiteCard({
                 </div>
             }
             after={
-                <IconButton onClick={onDelete} className="requisite__card__delete">
+                <IconButton onClick={isReadOnly ? onClick : onDelete} className="requisite__card__delete">
                     {!isReadOnly ? <BinIcon /> : <ChevronForwardIcon />}
                 </IconButton>
             }

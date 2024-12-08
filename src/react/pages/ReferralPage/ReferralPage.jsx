@@ -1,4 +1,4 @@
-import { Image, Placeholder, Modal, Button, Divider, Snackbar } from '@telegram-apps/telegram-ui'
+import { Image, Placeholder, Modal, Button, Snackbar } from '@telegram-apps/telegram-ui'
 import { Icon28Close } from "@telegram-apps/telegram-ui/dist/icons/28/close"
 import { Icon20Copy } from "@telegram-apps/telegram-ui/dist/icons/20/copy"
 
@@ -86,12 +86,6 @@ export function ReferralPage() {
                                 <Icon28Close style={{color: 'var(--tgui--plain_foreground)'}} />
                             </Modal.Close>
                         }
-                        before={
-                            <Placeholder
-                                header="Приглашайте друзей"
-                                className='referral_modal_placeholder'
-                            />
-                        }
                     >
                         Пригласить друзей
                     </Modal.Header>
@@ -102,7 +96,6 @@ export function ReferralPage() {
                     id="modal-description"
                     className='referral_modal_content__container'
                 >
-                    <Divider className='referral_modal_divider'/>
                     <Button
                         size="l"
                         className='referral_modal_button__inside'

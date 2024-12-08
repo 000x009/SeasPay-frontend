@@ -1,5 +1,7 @@
 .transfer-page__container {
     padding: 10px 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .transfer-page__header {
@@ -17,4 +19,5 @@
 
 .payment-systems-section__container {
     padding-top: 30px;
+    width: 100%;
 }

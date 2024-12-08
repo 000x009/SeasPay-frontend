@@ -1,1 +1,1 @@
-export const botURL = "https://t.me/overseas_pay_bot"
+export const botURL = "https://t.me/seaspay_bot"
