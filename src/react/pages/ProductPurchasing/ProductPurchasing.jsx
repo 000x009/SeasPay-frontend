@@ -34,10 +34,11 @@ export function ProductPurchasing() {
         const state = {
             state: {
                 payment_type: "product",
+                amount: product.price,
                 data: {
                     form: formData,
                     productId: params.id,
-                }
+                },
             }
         }
 

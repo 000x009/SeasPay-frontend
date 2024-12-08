@@ -60,7 +60,7 @@ export class OrderAPI {
      */
     static async createPlatformProductOrderCard(data, initData) {
         console.log("createPlatformProductOrderCard", data);
-        return axios.post(`${backendBaseURL}${this.baseEndpoint}platform-product/card`, data, {
+        return axios.post(`${backendBaseURL}${this.baseEndpoint}platform-product`, data, {
             headers: {
                 "Authorization": `${initData}`
             }
