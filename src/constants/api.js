@@ -1,2 +1,1 @@
-export const backendBaseURL = "http://localhost:8000";
-// export const botToken = process.env.BOT_TOKEN;
+export const backendBaseURL = "https://seaspayment.com/api";
