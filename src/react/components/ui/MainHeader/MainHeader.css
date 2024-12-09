@@ -1,12 +1,17 @@
-.icon_button__account {
-    position: absolute;
-    top: 0;
-    right: 0;
+.account_container {
     display: flex;
-    margin-right: 16px;
-    margin-top: 10px;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-right: 10px;
 }
 
-.image {
+.main_header__image {
     visibility: hidden;
+}
+
+
+.main_header__image_container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
 }

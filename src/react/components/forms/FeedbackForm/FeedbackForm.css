@@ -4,10 +4,27 @@
     padding-left: 20px;
 }
 
+.feedback_form {
+    padding-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .rating_form__rating {
     border-color: var(--tg-theme-hint-color);
 }
 
 .feedback_form_files__container {
     padding: 0 10px;
+}
+
+.feedback_text__container {
+    width: 100%;
+}
+
+.feedback_form__textarea {
+    border-color: var(--tg-theme-hint-color);
+    border-radius: 20px;
+    outline: none;
 }

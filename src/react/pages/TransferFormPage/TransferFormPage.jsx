@@ -1,18 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { MainButton } from '@vkruglikov/react-telegram-web-app';
 import { Subheadline, Image } from '@telegram-apps/telegram-ui';
 
-import SelectSection from '@/react/sections/SelectSection/SelectSection';
 import WriteGIF from '@/assets/gif/write_2.gif';
 import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
+import { useCountCommission } from "@/scripts/hooks/useCountCommission";
 import './TransferFormPage.css';
 
-const selectSectionItems = [
-    { id: 1, name: "Прямой перевод на карту", description: "0% комиссии за перевод", defaultChecked: true },
-    { id: 2, name: "Crypto Bot", description: "+3% комиссии за перевод", defaultChecked: false },
-];
 
 const paypalFields = [
     { header: "Почта получателя", placeholder: "example@example.com", name: "email" },
@@ -20,13 +15,8 @@ const paypalFields = [
 ]
 
 export function TransferFormPage() {
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(1);
     const [formData, setFormData] = useState({});
-    const navigate = useNavigate();
-
-    const handleChangeSelectForm = (selectedItem) => {
-        setSelectedPaymentMethod(selectedItem);
-    };
+    const countCommission = useCountCommission();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -45,17 +35,15 @@ export function TransferFormPage() {
             state: {
                 payment_type: "transfer",
                 amount: formData.amount,
+                finalRubAmount: undefined,
                 data: {
                     form: formData,
                 }
             }
         }
-        
-        if (selectedPaymentMethod === 1) {
-            navigate("/payment/card", state);
-        } else if (selectedPaymentMethod === 2) {
-            navigate("/payment/crypto", state);
-        }
+        let navigate_path = "/payment/card";
+
+        countCommission.handleCountCommission(formData.amount, state, navigate_path); 
     };
 
     return (
@@ -82,14 +70,11 @@ export function TransferFormPage() {
                     className="product-purchasing__input"
                 />
             </div>
-            <div className='select-section__container'>
-                <SelectSection
-                    header="Способ оплаты"
-                    items={selectSectionItems}
-                    onChangeForm={handleChangeSelectForm}
-                />
-            </div>
-            <MainButton text='Продолжить' onClick={handleMainButtonClick} />
+            <MainButton
+                text='Продолжить'
+                onClick={handleMainButtonClick}
+                progress={countCommission.isLoading}
+            />
         </div>
     );
 }

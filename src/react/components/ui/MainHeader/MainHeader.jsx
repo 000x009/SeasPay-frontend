@@ -12,25 +12,23 @@ export function MainHeader() {
     return (
         <div>
             <div className="header">
-                <Link to="/profile">
-                <IconButton size="l" mode="plain" className="icon_button__account">
-                    <AccountIcon/>
-                </IconButton>
-                </Link>
-                <Image
-                    src={MoneyGIF}
-                    className='image'
-                    style={{
-                        width: "130px",
-                        height: "130px",
-                        margin: "0 auto",
-                        bottom: "-40px",
-                        MozUserSelect: "none",
-                        WebkitUserSelect: "none",
-                        userSelect: "none",
-                        msUserSelect: "none",
-                    }}
-                />
+                <div className="account_container">
+                    <Link to="/profile">
+                        <IconButton size="l" mode="plain" className="icon_button__account">
+                            <AccountIcon/>
+                        </IconButton>
+                    </Link>
+                </div>
+                <div className="main_header__image_container">
+                    <Image
+                        src={MoneyGIF}
+                        className='main_header__image'
+                        style={{
+                            width: "120px",
+                            height: "120px",
+                        }}
+                    />
+                </div>
                 <MainActions/>
             </div>
         </div>

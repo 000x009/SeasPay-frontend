@@ -63,9 +63,7 @@ export function PostFeedback() {
                     }}
                 />
             </div>
-            <div className="post_feedback_form__container">
-                <FeedbackForm form={form} setForm={setForm} files={files} setFiles={setFiles} />
-            </div>
+            <FeedbackForm form={form} setForm={setForm} files={files} setFiles={setFiles} />
             <MainButton
                 text="Опубликовать"
                 className="post_feedback__main_button"

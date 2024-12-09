@@ -1,7 +1,6 @@
 .main_actions__container {
     padding: 16px;
-    margin-top: 40px;
-    width: calc(100% - 32px);
+    padding-top: 10px;
 }
 
 .actions__list {
@@ -16,12 +15,12 @@
 }
 
 .actions__item {
-    width: 110px;
+    width: 100%;
 }
 
 .action-button {
-    width: 110px;
-    height: 80px;
+    width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
