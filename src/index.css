@@ -29,3 +29,17 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: var(--tg-theme-text-color) !important;
   caret-color: var(--tg-theme-text-color);
 }
+
+
+@media screen and (max-width: 400px) {
+  html, body {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #root {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}

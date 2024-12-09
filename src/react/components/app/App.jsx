@@ -24,6 +24,7 @@ export function App() {
   }, []);
 
   useEffect(() => {
+    WebApp.expand();
     setTheme();
   }, [])
 
