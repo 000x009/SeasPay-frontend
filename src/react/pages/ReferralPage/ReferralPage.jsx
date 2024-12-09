@@ -79,6 +79,7 @@ export function ReferralPage() {
                 open={modalActive}
                 onOpenChange={setModalActive}
                 aria-describedby="modal-description"
+                className='referral_modal'
                 header={
                     <Modal.Header 
                         after={
@@ -87,10 +88,9 @@ export function ReferralPage() {
                             </Modal.Close>
                         }
                     >
-                        Пригласить друзей
+                        Приглашайте друзей
                     </Modal.Header>
                 }
-                className='referral_modal'
             >
                 <Placeholder
                     id="modal-description"

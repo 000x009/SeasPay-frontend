@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 import { Breadcrumbs } from "@telegram-apps/telegram-ui";
@@ -7,23 +7,19 @@ import { Breadcrumbs } from "@telegram-apps/telegram-ui";
 import { Info } from "@/react/components/ui/Info/Info";
 import WarningIcon from "@/assets/icons/warning.svg?react";
 import WarningIconBlack from "@/assets/icons/black-instruction.svg?react";
-import SelectSection from "@/react/sections/SelectSection/SelectSection";
 import { useProduct } from "@/scripts/hooks/useProduct";
 import { Progress } from "@/react/components/ui/Progress/Progress";
 import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
 import { useTelegram } from "@/scripts/hooks/useTelegram";
 import { parseInputFields } from "@/scripts/helpers/parseInputFields";
-import { availablePaymentMethods } from "@/constants/payment";
+import { useCountCommission } from "@/scripts/hooks/useCountCommission";
 import "./ProductPurchasing.css";
 
 export function ProductPurchasing() {
-    const navigate = useNavigate();
     const params = useParams();
     const { product, platform, isLoading } = useProduct(params.id);
     const { theme } = useTelegram();
-    console.log(theme)
-
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(1);
+    const countCommission = useCountCommission();
     const [formData, setFormData] = useState({});
 
     const handleMainButtonClick = () => {
@@ -35,22 +31,16 @@ export function ProductPurchasing() {
             state: {
                 payment_type: "product",
                 amount: product.price,
+                finalRubAmount: undefined,
                 data: {
                     form: formData,
                     productId: params.id,
-                },
+                }
             }
         }
+        const navigate_path = "/payment/card";
 
-        if (selectedPaymentMethod === 1) {
-            navigate("/payment/card", state);
-        } else if (selectedPaymentMethod === 2) {
-            navigate("/payment/crypto", state);
-        }
-    };
-
-    const handleChangeSelectForm = (selectedItem) => {
-        setSelectedPaymentMethod(selectedItem);
+        countCommission.handleCountCommission(product.price, state, navigate_path); 
     };
 
     const handleInputChange = (e) => {
@@ -91,14 +81,11 @@ export function ProductPurchasing() {
                     className="product-purchasing__input"
                 />
             </div>
-            <div className="product-purchasing__select-section">
-                <SelectSection
-                    header="Способ оплаты"
-                    items={availablePaymentMethods}
-                    onChangeForm={handleChangeSelectForm}
-                />
-            </div>
-            <MainButton text="Продолжить" onClick={handleMainButtonClick}/>
+            <MainButton
+                text="Продолжить"
+                onClick={handleMainButtonClick}
+                progress={countCommission.isLoading}
+            />
         </div>
     );
 }

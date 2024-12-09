@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { Text, Caption } from "@telegram-apps/telegram-ui";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
@@ -8,9 +8,6 @@ import { Copy } from "@/react/components/inputs/Copy/Copy";
 import { FileSection } from "@/react/sections/FileSection/FileSection";
 import { useCreatePlatformProductOrder } from "@/scripts/hooks/useCreatePlatformProductOrder";
 import { useCreateTransferOrder } from "@/scripts/hooks/useCreateTransferOrder";
-import { useCommission } from "@/scripts/hooks/useCommission";
-import { Progress } from "@/react/components/ui/Progress/Progress";
-import { currencyCommissionConvertor } from "@/scripts/helpers/currencyCommissionConvertor";
 import { useProductApplication } from "@/scripts/hooks/useProductApplication";
 import { useCreateDigitalProductOrder } from "@/scripts/hooks/useCreateDigitalProduct";
 import "./CardPage.css";
@@ -18,12 +15,10 @@ import "./CardPage.css";
 
 export function CardPage({ locationState }) {
     const [file, setFile] = useState(null);
-    const [convertedAmount, setConvertedAmount] = useState(null);
     const createProductOrder = useCreatePlatformProductOrder();
     const createTransferOrder = useCreateTransferOrder();
     const createDigitalProductOrder = useCreateDigitalProductOrder();
     const productApplication = useProductApplication(locationState.data.productApplicationId);
-    const { commission, isLoading } = useCommission();
 
     const handleMainButtonClick = async () => {
         if (!file) {
@@ -42,20 +37,6 @@ export function CardPage({ locationState }) {
         }
     };
 
-    useEffect(() => {
-        async function convertAmount() {
-            if (commission && locationState.amount) {
-                const amount = await currencyCommissionConvertor(locationState.amount, commission.transfer);
-                setConvertedAmount(amount);
-            }
-        }
-        convertAmount();
-    }, [commission, locationState.amount]);
-
-    if (isLoading) {
-        return <Progress />
-    }
-
     return (
         <div className="card-page">
             <div className="card-page__icon-container">
@@ -63,7 +44,7 @@ export function CardPage({ locationState }) {
             </div>
             <div className="card-page__title-container">
                 <Text weight="2">
-                    Сделайте перевод денежных средств на сумму {convertedAmount}₽ по предоставленным реквизитам ниже и прикрепите фото чека
+                    Сделайте перевод денежных средств на сумму {locationState.finalRubAmount}₽ по предоставленным реквизитам ниже и прикрепите фото чека
                 </Text>
             </div>
             <div className="card-page__copy-container">

@@ -8,4 +8,11 @@ export class UserCommissionAPI {
     static async getUserCommission(initData) {
         return axios.get(`${backendBaseURL}${this.baseEndpoint}`, { headers: { "Authorization": `${initData}` } })
     }
+
+    static async countCommission(initData, amount) {
+        return axios.get(`${backendBaseURL}${this.baseEndpoint}count-commission`, {
+            headers: { "Authorization": `${initData}` },
+            params: { amount },
+        })
+    }
 }

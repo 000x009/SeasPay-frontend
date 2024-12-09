@@ -28,10 +28,6 @@
     background-color: var(--tg-theme-bg-color);
 }
 
-.referral_modal_close {
-    margin-left: auto;
-}
-
 .referral_modal_button:hover {
     cursor: pointer;
 }
@@ -60,14 +56,6 @@
 
 .referral_modal_content__container {
     gap: 15px;
-}
-
-
-.referral_modal_divider {
-    color: var(--tg-theme-hint-color);
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 5px;
 }
 
 .snackbar {

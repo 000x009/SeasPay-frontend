@@ -26,7 +26,7 @@ export function MainActions() {
                     >
                         <div className="icon-button__content">
                             <TransferIcon className="action-icon"/>
-                            <Subheadline>Перевести</Subheadline>
+                            <Subheadline level="2" weight="2">Перевести</Subheadline>
                         </div>
                     </IconButton>
                 </li>
@@ -38,7 +38,7 @@ export function MainActions() {
                     >
                         <div className="icon-button__content">
                             <WithdrawIcon className="action-icon"/>
-                            <Subheadline>Вывести</Subheadline>
+                            <Subheadline level="2" weight="2">Вывести</Subheadline>
                         </div>
                     </IconButton>
                 </li>
@@ -50,7 +50,7 @@ export function MainActions() {
                     >
                         <div className="icon-button__content">
                             <ServicesIcon className="action-icon"/>
-                            <Subheadline>Сервисы</Subheadline>
+                            <Subheadline level="2" weight="2">Сервисы</Subheadline>
                         </div>
                     </IconButton>
                 </li>

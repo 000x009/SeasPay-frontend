@@ -1,1 +1,1 @@
-export const backendBaseURL = "https://seaspayment.com/api";
+export const backendBaseURL = "http://localhost:8000";

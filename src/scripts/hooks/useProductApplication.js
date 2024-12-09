@@ -10,6 +10,7 @@ export function useProductApplication(id) {
     const {data, isLoading} = useQuery({
         queryKey: ['product-application', id],
         queryFn: async () => {
+            if (!id) return null;
             const productApplication = await ProductApplicationAPI.getProductApplication(id);
             const purchaseRequest = await PurchaseRequestAPI.getRequest(productApplication.data.purchase_request_id, initDataRaw);
             return {

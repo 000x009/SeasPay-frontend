@@ -10,6 +10,8 @@ export function PaymentPage() {
     const location = useLocation();
     const locationState = location.state;
 
+    console.log("locationState", locationState)
+
     return (
         <div className="payment-page">
             {type === "card" ? <CardPage locationState={locationState} /> : <CryptoPage locationState={locationState} />}
