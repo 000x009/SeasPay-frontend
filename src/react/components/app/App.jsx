@@ -24,7 +24,7 @@ export function App() {
 
   useEffect(() => {
     WebApp.expand();
-    setTheme(WebApp.colorScheme || 'default');
+    setTheme();
   }, [WebApp.colorScheme]);
 
   const platform = ['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base';

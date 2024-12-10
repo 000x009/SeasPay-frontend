@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { Textarea, List } from "@telegram-apps/telegram-ui";
+import { Textarea } from "../../inputs/Textarea/Textarea";
 
 import { FileSection } from "@/react/sections/FileSection/FileSection";
 

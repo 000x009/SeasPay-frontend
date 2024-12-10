@@ -1,4 +1,5 @@
-import { Input } from "@telegram-apps/telegram-ui";
+// import { Input } from "@telegram-apps/telegram-ui";
+import { Input } from "../../inputs/Input/Input";
 
 import { PasswordInput } from "../../inputs/PasswordInput/PasswordInput";
 import "@telegram-apps/telegram-ui/dist/styles.css";

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { Input, Select, Subheadline } from "@telegram-apps/telegram-ui"
+import { Select, Subheadline } from "@telegram-apps/telegram-ui"
+import { Input } from "../../inputs/Input/Input"
 
 import { CARD_DETAILS, CRYPTO_DETAILS } from "@/constants/detailsText"
 import PlusIcon from "@/assets/icons/plus.svg?react"
