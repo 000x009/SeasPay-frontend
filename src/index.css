@@ -42,3 +42,20 @@ input:-webkit-autofill:active {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+
+.transfer__svg {
+  fill: var(--tg-theme-link-color);
+}
+
+.withdraw__svg {
+  fill: var(--tg-theme-link-color);
+}
+
+.services__svg {
+  fill: var(--tg-theme-link-color);
+}
+
+.account__svg {
+  fill: var(--tg-theme-link-color);
+}
