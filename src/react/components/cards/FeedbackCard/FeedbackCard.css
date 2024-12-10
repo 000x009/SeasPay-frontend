@@ -44,3 +44,14 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .feedback_card__info {
+        font-size: 15px;
+    }
+
+    .feedback_card__container {
+        padding: 15px 20px;
+    }
+}

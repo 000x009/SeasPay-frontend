@@ -44,7 +44,6 @@ export function FeedbackForm({ form, setForm, files, setFiles }) {
                         className="feedback_form__textarea"
                         onChange={onTextChange}
                         status={form.isTextValid ? "default" : "error"}
-                        autoFocus={true}
                     />
                 </div>
                 <div className="feedback_form_files__container">

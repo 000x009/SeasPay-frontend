@@ -3,17 +3,24 @@ import { Rating } from "@mui/material";
 
 import { formatDate } from "@/scripts/helpers/formatDate";
 import { FeedbackSkeleton } from "../FeedbackSkeleton/FeedbackSkeleton";
+import { useTelegram } from "@/scripts/hooks/useTelegram";
 
 import "./FeedbackCard.css";
 
 export function FeedbackCard({feedback, loading}) {
+    const {WebApp} = useTelegram();
+
     return (
         <Tappable className="feedback_card__container">
             {loading ? <FeedbackSkeleton /> : (
                 <>
                     <div className="feedback_card__header">
                         <div className="feedback_card__rating">
-                            <Rating value={feedback.stars} readOnly size="large"/>
+                            <Rating
+                                value={feedback.stars}
+                                readOnly
+                                size={["ios", "android"].includes(WebApp.platform) ? "medium" : "large"}
+                            />
                         </div>
                         <div className="feedback_card__info">
                             <Caption weight="3" level="3" className="feedback_card__date">

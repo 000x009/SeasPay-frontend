@@ -29,13 +29,14 @@ export function App() {
   }, [])
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <AppRoot
-        appearance={WebApp.colorScheme}
-        platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
-      >
+    <AppRoot
+      appearance={WebApp.colorScheme}
+      platform={['macos'].includes(WebApp.platform) ? 'ios' : 'base'}
+    >
+      <QueryClientProvider client={queryClient}>
         <AppRouter/>
-      </AppRoot>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </AppRoot>
   );
 }
+

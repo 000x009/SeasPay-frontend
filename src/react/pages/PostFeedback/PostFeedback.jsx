@@ -13,6 +13,7 @@ import { usePostFeedback } from "@/scripts/hooks/usePostFeedback";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
 
 import { FeedbackForm } from "@/react/components/forms/FeedbackForm/FeedbackForm";
+import { useTelegram } from "@/scripts/hooks/useTelegram";
 
 import "./PostFeedback.css";
 
@@ -34,6 +35,7 @@ export function PostFeedback() {
     });
     const [files, setFiles] = useState([]);
     const postFeedback = usePostFeedback();
+    const { WebApp } = useTelegram();
 
     const handleMainButtonClick = async () => {
         if (form.text.length === 0) {
@@ -57,10 +59,15 @@ export function PostFeedback() {
                     animationData={mainImage[form.rating]}
                     loop={true}
                     autoplay={true}
-                    style={{
-                        width: "150px",
-                        height: "150px",
-                    }}
+                    style={
+                        ["ios", "android"].includes(WebApp.platform) ? {
+                            width: "125px",
+                            height: "125px",
+                        } : {
+                            width: "150px",
+                            height: "150px",
+                        }
+                    }
                 />
             </div>
             <FeedbackForm form={form} setForm={setForm} files={files} setFiles={setFiles} />

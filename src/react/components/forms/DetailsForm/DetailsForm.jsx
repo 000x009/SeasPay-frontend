@@ -3,6 +3,7 @@ import { Input, Select, Subheadline } from "@telegram-apps/telegram-ui"
 
 import { CARD_DETAILS, CRYPTO_DETAILS } from "@/constants/detailsText"
 import PlusIcon from "@/assets/icons/plus.svg?react"
+import "@telegram-apps/telegram-ui/dist/styles.css";
 import "./DetailsForm.css"
 
 export function DetailsForm({ type, values, handlers }) {

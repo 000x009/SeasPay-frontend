@@ -1,6 +1,7 @@
 import { Input } from "@telegram-apps/telegram-ui";
 
 import { PasswordInput } from "../../inputs/PasswordInput/PasswordInput";
+import "@telegram-apps/telegram-ui/dist/styles.css";
 import "./GeneratedForm.css";
 
 

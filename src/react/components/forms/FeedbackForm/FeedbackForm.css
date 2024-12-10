@@ -28,3 +28,7 @@
     border-radius: 20px;
     outline: none;
 }
+
+.feedback_form_files__container {
+    margin-left: 5px;
+}
