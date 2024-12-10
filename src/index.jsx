@@ -1,9 +1,9 @@
+import '@telegram-apps/telegram-ui/dist/styles.css';
+import './index.css';
+
 import ReactDOM from 'react-dom/client';
 
 import { Root } from '@/react/components/app/Root.jsx';
-
-import '@telegram-apps/telegram-ui/dist/styles.css';
-import './index.css';
 
 const root = document.getElementById('root')
 const telegram = window.Telegram.WebApp;
