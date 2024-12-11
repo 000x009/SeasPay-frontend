@@ -23,9 +23,10 @@ export function App() {
   }, [WebApp.initData]);
 
   useEffect(() => {
+    console.log(WebApp)
     WebApp.expand();
     setTheme();
-  }, [WebApp.colorScheme]);
+  }, []);
 
   const platform = ['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base';
 

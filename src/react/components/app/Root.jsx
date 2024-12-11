@@ -3,7 +3,6 @@ import { useEffect, useMemo } from 'react';
 
 import { App } from '@/react/components/app/App.jsx';
 import { ErrorBoundary } from '@/react/components/app/ErrorBoundary.jsx';
-import { setBackgroundMainColor } from '@/scripts/helpers/setBackgroundMainColor';
 
 /**
  * @param {unknown} error

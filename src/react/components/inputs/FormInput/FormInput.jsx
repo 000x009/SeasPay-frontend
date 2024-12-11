@@ -6,10 +6,12 @@ import { callMultiple } from '@telegram-apps/telegram-ui/dist/helpers/function';
 import { hasReactNode } from '@telegram-apps/telegram-ui/dist/helpers/react/node';
 
 import { FormInputTitle } from '@telegram-apps/telegram-ui/dist/components/Form/FormInput/components/FormInputTitle';
+import { useTelegram } from '@/scripts/hooks/useTelegram';
 
 const platformStyles = {
   base: styles['wrapper--base'],
   ios: styles['wrapper--ios'],
+  android: styles['wrapper--android'],
 };
 
 const formStatusStyles = {
@@ -31,7 +33,9 @@ export const FormInput = forwardRef(({
   ...restProps
 }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
+  const {WebApp} = useTelegram();
 
+  const platform = WebApp.platform;
   const formStatus = status || (isFocused ? 'focused' : 'default');
 
   const onFocus = callMultiple(onFocusProp, () => {
@@ -48,7 +52,7 @@ export const FormInput = forwardRef(({
       ref={ref}
       className={classNames(
         styles.wrapper,
-        platformStyles["base"],
+        platformStyles[["android"].includes(platform) ? "android" : "base"],
         formStatusStyles[formStatus],
         disabled && styles['wrapper--disabled'],
       )}

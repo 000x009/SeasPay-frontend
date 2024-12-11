@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-import { Image, Placeholder, Input } from "@telegram-apps/telegram-ui";
+import { Image, Placeholder } from "@telegram-apps/telegram-ui";
 import { MainButton } from "@vkruglikov/react-telegram-web-app";
+
 import PlanetGIF from "@/assets/gif/planet.gif";
+import { Input } from "@/react/components/inputs/Input/Input";
 import { useSendPurchaseRequest } from "@/scripts/hooks/useSendPurchaseRequest";
 import { useTelegram } from "@/scripts/hooks/useTelegram";
 import "./PurchaseRequest.css";

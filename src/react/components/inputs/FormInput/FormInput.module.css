@@ -1,7 +1,6 @@
 .wrapper--base {
     position: relative;
     padding: 20px 22px 16px 22px;
-    background: var(--tgui--bg_color);
 }
   
 .wrapper--base .title {
@@ -20,6 +19,29 @@
     color: var(--tgui--secondary_hint_color);
     background: var(--tgui--bg_color);
 }
+
+
+.wrapper--android {
+  position: relative;
+  padding: 20px 22px 16px 22px;
+}
+
+.wrapper--android .title {
+  position: absolute;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  top: 6px;
+  left: 32px;
+  max-width: calc(100% - 32px * 2 - 22px);
+
+  border-radius: 5px;
+  padding: 0 6px;
+  color: var(--tgui--secondary_hint_color);
+  background: #1D2733;
+}
   
 .wrapper--disabled {
     position: relative;
@@ -37,6 +59,14 @@
     opacity: .5;
     background: var(--tgui--bg_color);
 }
+
+.wrapper--android.wrapper--disabled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .5;
+  background: var(--tgui--bg_color);
+}
   
 .body {
     display: flex;
@@ -50,32 +80,52 @@
 }
   
 .wrapper--base .body {
-    border-radius: 14px;
-    box-shadow: 0 0 0 2px var(--tgui--outline);
+  border-radius: 14px;
+  box-shadow: 0 0 0 2px var(--tgui--outline);
 }
   
-  .wrapper--base.wrapper--error .title {
-    color: var(--tgui--destructive_text_color);
-  }
+.wrapper--base.wrapper--error .title {
+  color: var(--tgui--destructive_text_color);
+}
   
-  .wrapper--base.wrapper--error .body {
-    box-shadow: 0 0 0 2px var(--tgui--destructive_text_color);
-  }
+.wrapper--base.wrapper--error .body {
+  box-shadow: 0 0 0 2px var(--tgui--destructive_text_color);
+}
   
-  .wrapper--base.wrapper--focused .title {
-    color: var(--tgui--link_color);
-  }
+.wrapper--base.wrapper--focused .title {
+  color: var(--tgui--link_color);
+}
   
-  .wrapper--base.wrapper--focused .body {
-    box-shadow: 0 0 0 2px var(--tgui--link_color);
-  }
+.wrapper--base.wrapper--focused .body {
+  box-shadow: 0 0 0 2px var(--tgui--link_color);
+}
+
+.wrapper--android .body {
+  border-radius: 14px;
+  box-shadow: 0 0 0 2px var(--tgui--outline);
+}
   
-  .wrapper--ios .body {
-    border-radius: 12px;
-    background: var(--tgui--bg_color);
-  }
+.wrapper--android.wrapper--error .title {
+  color: var(--tgui--destructive_text_color);
+}
   
-  .wrapper--ios.wrapper--error .body {
-    box-shadow: 0 0 0 1.5px var(--tgui--destructive_text_color);
-  }
+.wrapper--android.wrapper--error .body {
+  box-shadow: 0 0 0 2px var(--tgui--destructive_text_color);
+}
   
+.wrapper--android.wrapper--focused .title {
+  color: var(--tgui--link_color);
+}
+  
+.wrapper--android.wrapper--focused .body {
+  box-shadow: 0 0 0 2px var(--tgui--link_color);
+}
+  
+.wrapper--ios .body {
+  border-radius: 12px;
+  background: var(--tgui--bg_color);
+}
+  
+.wrapper--ios.wrapper--error .body {
+  box-shadow: 0 0 0 1.5px var(--tgui--destructive_text_color);
+}
