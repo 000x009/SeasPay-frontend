@@ -16,7 +16,7 @@ body {
   }
 }
 
-input, textarea {
+/* input, textarea {
   background-color: var(--tg-theme-input-bg-color);
   color: var(--tg-theme-input-text-color);
   border: 1px solid var(--tg-theme-secondary-bg-color);
@@ -28,11 +28,11 @@ input, textarea {
   line-height: 1.5;
   box-sizing: border-box;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s
-}
+} */
 
-input::placeholder, textarea::placeholder {
+/* input::placeholder, textarea::placeholder {
   color: var(--tg-theme-placeholder-color)
-}
+} */
 
 img {
   -webkit-user-drag: none;
