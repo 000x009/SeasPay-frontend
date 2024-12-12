@@ -23,7 +23,6 @@ export function App() {
   }, [WebApp.initData]);
 
   useEffect(() => {
-    console.log(WebApp)
     WebApp.expand();
     setTheme();
   }, []);

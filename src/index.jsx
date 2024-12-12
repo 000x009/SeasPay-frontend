@@ -16,6 +16,6 @@ if (['webk', 'weba', 'tdesktop'].includes(telegram.platform)) {
     root.style.setProperty('--tg-theme-secondary-bg-color', '#212121');
   }
   if (telegram.colorScheme === 'light') {
-    root.style.setProperty('--tg-theme-secondary-bg-color', '#FFFFFF');
+    root.style.setProperty('--tg-theme-secondary-bg-color', '#EFEEF4');
   }
 }
