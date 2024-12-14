@@ -1,4 +1,4 @@
-const MAX_COMMISSION_VALUE = 15;
+const MAX_COMMISSION_VALUE = 13;
 const MIN_COMMISSION_VALUE = 5;
 
 export function getCommissionProgress(commission) {
