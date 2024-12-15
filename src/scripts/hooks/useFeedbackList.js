@@ -16,7 +16,6 @@ export function useFeedbackList() {
         },
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            console.log("lastPage", lastPage);
             if (lastPage.feedbacks.length === 0) {
                 return undefined
             }

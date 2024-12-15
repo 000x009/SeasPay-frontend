@@ -4,7 +4,6 @@ import styles from './Input.module.css';
 import { classNames } from '@telegram-apps/telegram-ui/dist/helpers/classNames';
 import { usePlatform } from '@telegram-apps/telegram-ui/dist/hooks/usePlatform';
 
-
 import { FormInput } from '../FormInput/FormInput';
 import { Subheadline } from '@telegram-apps/telegram-ui/dist/components/Typography/Subheadline/Subheadline';
 import { Text } from '@telegram-apps/telegram-ui/dist/components/Typography/Text/Text';

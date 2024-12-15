@@ -8,7 +8,6 @@ export function PaymentSystemsSection({ paymentSystems, type }) {
 
     const handlePaymentSystemClick = (paymentSystemName) => {
         if (type === "withdraw") {
-            console.log("withdraw")
             navigate(`/withdraw/requisite-selecting`, { state: { paymentSystemName } })
         } else {
             navigate(`/transfer/form`, { state: { paymentSystemName } })

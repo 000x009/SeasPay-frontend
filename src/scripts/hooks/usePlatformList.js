@@ -9,6 +9,5 @@ export function usePlatformList(limit = 4, offset = 0) {
             return platforms.data;
         }
     })
-    console.log("data", data);
     return { data, isLoading };
 }

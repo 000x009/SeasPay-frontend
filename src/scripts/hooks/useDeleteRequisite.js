@@ -23,7 +23,6 @@ export function useDeleteRequisite() {
         },
         async onSuccess(_, deletedId) {
             const requisitesData = await queryClient.getQueryData(['requisites'])
-            console.log("requisitesData", requisitesData)
             if (requisitesData.requisites) {
                 queryClient.setQueryData(
                     ['requisites'],

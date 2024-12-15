@@ -23,11 +23,9 @@ export function WithdrawFormPage() {
     const createWithdrawOrder = useCreateWithdrawOrder();
 
     const handleMainButtonClick = async () => {
-        console.log("file", file)
         if (!file) {
             return;
         }
-        console.log("send")
         await createWithdrawOrder.handleCreateWithdrawOrder(locationState.pickedRequisiteId, file[0])
     }
 

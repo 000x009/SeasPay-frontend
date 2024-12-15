@@ -10,11 +10,15 @@ import "./CryptoPage.css";
 export function CryptoPage({ locationState }) {
     const { WebApp } = useTelegram();
     const createInvoice = useCreateInvoice();
-    const amount = locationState.amount;
+    const amount = locationState.cryptoUsdtAmount;
 
     const handleCreateCryptoPayInvoice = async () => {
         if (!createInvoice.data) {
-            createInvoice.handleCreateInvoice(parseFloat(amount));
+            createInvoice.handleCreateInvoice({
+                amount: parseFloat(amount),
+                orderType: locationState.payment_type,
+                data: locationState.data,
+            });
         } else {
             WebApp.openTelegramLink(createInvoice.data.invoice_url);
         }

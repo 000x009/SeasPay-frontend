@@ -6,6 +6,8 @@ import { Subheadline, Image } from '@telegram-apps/telegram-ui';
 import WriteGIF from '@/assets/gif/write_2.gif';
 import { GeneratedForm } from "@/react/components/forms/GeneratedForm/GeneratedForm";
 import { useCountCommission } from "@/scripts/hooks/useCountCommission";
+import SelectSection from "@/react/sections/SelectSection/SelectSection";
+import { availablePaymentMethods } from "@/constants/payment";
 import './TransferFormPage.css';
 
 
@@ -16,6 +18,7 @@ const paypalFields = [
 
 export function TransferFormPage() {
     const [formData, setFormData] = useState({});
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(1);
     const countCommission = useCountCommission();
 
     const handleInputChange = (e) => {
@@ -41,9 +44,18 @@ export function TransferFormPage() {
                 }
             }
         }
-        let navigate_path = "/payment/card";
+        let navigate_path = "";
+        if (selectedPaymentMethod === 1) {
+            navigate_path = "/payment/card";
+        } else if (selectedPaymentMethod === 2) {
+            navigate_path = "/payment/crypto";
+        }
 
         countCommission.handleCountCommission(formData.amount, state, navigate_path); 
+    };
+
+    const handleChangeSelectForm = (selectedItem) => {
+        setSelectedPaymentMethod(selectedItem);
     };
 
     return (
@@ -67,7 +79,14 @@ export function TransferFormPage() {
                 <GeneratedForm
                     inputItems={paypalFields}
                     onInputChange={handleInputChange}
-                    className="product-purchasing__input"
+                    className="transfer-form"
+                />
+            </div>
+            <div className="product-purchasing__select-section">
+                <SelectSection
+                    header="Способ оплаты"
+                    items={availablePaymentMethods}
+                    onChangeForm={handleChangeSelectForm}
                 />
             </div>
             <MainButton

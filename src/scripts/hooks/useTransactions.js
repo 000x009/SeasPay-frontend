@@ -24,7 +24,6 @@ export function useTransactions() {
         },
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
-            console.log("lastPage", lastPage);
             if (lastPage.orders.length === 0) {
                 return undefined
             }

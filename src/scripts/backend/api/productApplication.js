@@ -6,7 +6,6 @@ export class ProductApplicationAPI {
     static baseEndpoint = '/product-application/'
 
     static async getProductApplication(id) {
-        console.log("getProductApplication", id);
         return axios.get(`${backendBaseURL}${this.baseEndpoint}${id}`)
     }
 }

@@ -31,7 +31,6 @@ export function ReferralPage() {
 
     const handleShareLink = async () => {
         setModalActive(false)
-        console.log("sharePreparedMessage", data.prepared_message_id)
         WebApp.shareMessage(data.prepared_message_id)
     }
 

@@ -25,16 +25,29 @@ export function useCountCommission() {
         countCommissionMutation.mutate({ amount }, {
             onSuccess: (data) => {
                 if (state.state.payment_type === "transfer") {
-                    console.log("transfer")
-                    console.log("data", data)
-                    navigate(navigate_path, { state: { ...state.state, finalRubAmount: data.transfer_final_rub } })
+                    const updatedState = {
+                        ...state.state,
+                        amount: data.transfer_final_usd,
+                        finalRubAmount: data.transfer_final_rub,
+                        cryptoUsdtAmount: data.transfer_crypto_usdt
+                    }
+                    navigate(navigate_path, { state: updatedState })
                 } else if (state.state.payment_type === "product-application") {
-                    console.log("product-application")
-                    navigate(navigate_path, { state: { ...state.state, finalRubAmount: data.digital_product_final_rub } })
+                    const updatedState = {
+                        ...state.state,
+                        amount: data.digital_product_final_usd,
+                        cryptoUsdtAmount: data.digital_product_crypto_usdt,
+                        finalRubAmount: data.digital_product_final_rub 
+                    }
+                    navigate(navigate_path, { state: updatedState })
                 } else if (state.state.payment_type === "product") {
-                    console.log("product")
-                    console.log("data", data)
-                    navigate(navigate_path, { state: { ...state.state, finalRubAmount: data.digital_product_final_rub } })
+                    const updatedState = {
+                        ...state.state,
+                        amount: data.digital_product_final_usd,
+                        cryptoUsdtAmount: data.digital_product_crypto_usdt,
+                        finalRubAmount: data.digital_product_final_rub
+                    }
+                    navigate(navigate_path, { state: updatedState })
                 }
             }
         })

@@ -15,7 +15,6 @@ export class PlatformProductAPI {
     }
 
     static async getPlatformProduct(id) {
-        console.log("getPlatformProduct", id);
         return axios.get(`${backendBaseURL}${this.baseEndpoint}${id}`)
     }
 }
